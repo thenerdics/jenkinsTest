@@ -1,27 +1,29 @@
 #!/usr/bin/env groovy
 
-
-Job('example') {
-    try {
-        definition {
-            cpsScm {
-                scm {
-                    git('https://github.com/jenkinsci/job-dsl-plugin.git')
+try {
+    pipeline {
+        pipelineJob('example') {
+            definition {
+                cpsScm {
+                    scm {
+                        git('https://github.com/jenkinsci/job-dsl-plugin.git')
+                    }
                 }
             }
         }
-    } catch (exc) {
-        echo 'Something failed'
-        currentBuild.result = 'FAILEDZZZZ'
-        stage('notify') {          
-                script {
-                        if (currentBuild.currentResult) {
-                                echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: '${env.message}'"
-                        } else {
-                                echo "${env.JOB_NAME} status is unknown"
-                        }
-                }
-        }
+    }
+
+} catch (exc) {
+    echo 'Something failed'
+    currentBuild.result = 'FAILEDZZZZ'
+    stage('notify') {          
+            script {
+                    if (currentBuild.currentResult) {
+                            echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: '${env.message}'"
+                    } else {
+                            echo "${env.JOB_NAME} status is unknown"
+                    }
+            }
     }
 }
 
