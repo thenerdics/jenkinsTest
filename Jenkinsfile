@@ -1,7 +1,8 @@
 #!/usr/bin/env groovy
 
-try {
-    pipelineJob('example') {
+
+pipelineJob('example') {
+    try {
         definition {
             cpsScm {
                 scm {
@@ -9,18 +10,18 @@ try {
                 }
             }
         }
-    }
-} catch (exc) {
-    echo 'Something failed'
-    currentBuild.result = 'FAILEDZZZZ'
-    stage('notify') {          
-            script {
-                    if (currentBuild.currentResult) {
-                            echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: '${env.message}'"
-                    } else {
-                            echo "${env.JOB_NAME} status is unknown"
-                    }
-            }
+    } catch (exc) {
+        echo 'Something failed'
+        currentBuild.result = 'FAILEDZZZZ'
+        stage('notify') {          
+                script {
+                        if (currentBuild.currentResult) {
+                                echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: '${env.message}'"
+                        } else {
+                                echo "${env.JOB_NAME} status is unknown"
+                        }
+                }
+        }
     }
 }
 
