@@ -17,10 +17,8 @@ try {
                 }
             }
             stage('Test') {
-                steps {
                     echo env.JOB_NAME
                     echo env.GIT_AUTHOR_NAME
-                }
             }
         }
     }
