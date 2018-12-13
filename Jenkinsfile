@@ -28,12 +28,13 @@ pipeline {
                 }
             }
         }
+        stage('notify') {
+            echo "${env.JOB_NAME}'s status is: ${currentBuild.currentResult}"
+        }
     }
 }
 
-stage('notify') {
-    echo "${env.JOB_NAME}'s status is: ${currentBuild.currentResult}"
-}
+
 
 /*
 try {
