@@ -20,7 +20,7 @@ try {
                 steps {
                     script {
                         echo env.JOB_NAME
-                        sh git show -s --pretty=%an
+                        echo env.GIT_AUTHOR_NAME
                     }
                 }
             }
