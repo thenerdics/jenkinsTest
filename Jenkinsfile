@@ -8,7 +8,7 @@ pipeline {
                 script {
                     catchError {
                         sh '''
-                        cd /doesntExist
+                        ls /
                         '''
                     }
                 }
