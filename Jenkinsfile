@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-try {
+stage('build') {
     pipeline {
         agent any
         stages { 
@@ -19,13 +19,11 @@ try {
             }
         }
     }
-} catch(exc) {
-    currentBuild.result = 'FAILEDZZZZ'
-    echo currentBuild.result
 }
 
+
 stage('notify') {
-            echo "${env.JOB_NAME}'s status is: ${currentBuild.currentResult}"
+        echo "${env.JOB_NAME}'s status is: ${currentBuild.currentResult}"
 }
 
 /*
