@@ -8,7 +8,7 @@ pipeline {
                         steps {
                             script { 
                                 try {
-                                    def message = "HELLO MARC MATE,\n IT'S FERDI"
+                                    env.message = "HELLO MARC MATE,\n IT'S FERDI"
                                     echo "${message}"
                                 } catch (exc) {
                                     echo 'Something failed, I should sound the klaxons!'
@@ -30,7 +30,7 @@ pipeline {
                                     script {
                                             if (currentBuild.currentResult) {
                                                     echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'"
-                                                    echo "Message is is: '${message}'"
+                                                    echo "Message is is: '${env.message}'"
                                             } else {
                                                     echo "${env.JOB_NAME} status is unknown"
                                             }
