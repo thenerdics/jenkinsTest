@@ -1,7 +1,6 @@
 #!/usr/bin/env groovy
-
-try {
     pipeline {
+        try {
             agent any
                 stages {
                         stage('build') {
