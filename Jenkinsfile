@@ -13,7 +13,8 @@ node {
                                             echo 'I execute elsewhere'
                                     }
                             }
-                    } 
+                    }
+                } 
             } catch (exc) {
                 echo 'Something failed, I should sound the klaxons!'
                 currentBuild.result = 'FAILEDZZZZ'
