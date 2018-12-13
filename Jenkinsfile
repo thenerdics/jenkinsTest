@@ -16,10 +16,8 @@ try {
                 echo currentBuild.currentResult
                 }
             }
-            stage('Test') {
-                steps {
-                    echo env.JOB_NAME
-                }
+            stage('Job Info') {
+                echo env.JOB_NAME
             }
         }
     }
