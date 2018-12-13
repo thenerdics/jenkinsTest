@@ -1,31 +1,19 @@
 #!/usr/bin/env groovy
 
 pipeline {
-    agent none 
-    stages {
-        stage('Example Build') {
-            job('example-job-from-job-dsl') {
-                scm {
-                    github('jenkinsci/job-dsl-plugin', 'master')
-                }
-                triggers {
-                    cron("@hourly")
-                }
-                steps {
-                    shell("echo 'Hello World'")
-                }
-            }
-        }
-        stage('Example Test') {
-            agent { docker 'openjdk:8-jre' } 
+    agent any
+    stages { 
+        stage('Example') {
             steps {
-                echo 'Hello, JDK'
-                sh 'java -version'
+                echo 'Hello World'
             }
         }
     }
 }
 
+stage('notify') {
+    echo "${currentBuild.currentResult}"
+}
 
 /*
 try {
