@@ -17,7 +17,7 @@ try {
                 }
             }
             stage('Test') {
-                catchError {
+                steps {
                     echo env.GIT_AUTHOR_NAME
                 }
             }
