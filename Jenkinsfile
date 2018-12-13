@@ -15,16 +15,16 @@ pipeline {
             echo currentBuild.currentResult
             }
         }
-        stage('Example') {
-            steps {
-                script {
-                    catchError {
-                        sh '''
-                        ls /
-                        '''
+        stage('Test') {
+            catchError {
+                pipelineJob('example') {
+                    definition {
+                        cps {
+                            script(readFileFromWorkspace('project-a-workflow.groovy'))
+                            sandbox()
+                        }
                     }
                 }
-            echo currentBuild.currentResult
             }
         }
     }
