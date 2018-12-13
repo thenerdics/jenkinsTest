@@ -23,7 +23,7 @@ pipeline {
                             steps {
                                     script {
                                             if (currentBuild.result == 'FAILEDZZZZ') {
-                                                    echo 'The Build failed'
+                                                    echo "currentBuild.result1: '${currentBuild.result}'"
                                             } else {
                                                     echo 'Build status is unknown'
                                             }
