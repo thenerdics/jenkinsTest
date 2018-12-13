@@ -29,7 +29,11 @@ pipeline {
             }
         }
         stage('notify') {
-            echo "${env.JOB_NAME}'s status is: ${currentBuild.currentResult}"
+            steps {
+                scripts {
+                    echo "${env.JOB_NAME}'s status is: ${currentBuild.currentResult}"
+                }
+            }
         }
     }
 }
