@@ -1,8 +1,7 @@
 #!/usr/bin/env groovy
 
 try {
-    pipeline {
-        pipelineJob('example') {
+    job('example') {
             definition {
                 cpsScm {
                     scm {
@@ -12,7 +11,6 @@ try {
             }
         }
     }
-
 } catch (exc) {
     echo 'Something failed'
     currentBuild.result = 'FAILEDZZZZ'
