@@ -5,8 +5,10 @@ pipeline {
     stages { 
         stage('Example') {
             steps {
-                catchError {
+                script {
+                    sh '''
                     cd /doesntExist
+                    '''
                 }
             echo currentBuild.result
             }
