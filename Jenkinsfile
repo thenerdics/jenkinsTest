@@ -1,25 +1,11 @@
-pipeline {
-  agent any
-  stages {
-    stage("Run unit tests"){
-      steps {
-        script {
-          try {
-            sh  '''
-              curl http://localhost:8080/api/json?tree=result | grep -i "result"
-              '''
-          } finally {
-            sh '''
-            echo "exit"
-            '''
-          }
+node {
+    stage('Example') {
+        try {
+            curl http://localhost:8080
         }
-      }
+        catch (exc) {
+            echo 'Something failed, I should sound the klaxons!'
+            throw
+        }
     }
-    stage ('Speak') {
-      steps{
-        echo "Hello, CONDITIONAL"
-      }
-    }
-  }
 }
