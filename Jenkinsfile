@@ -18,15 +18,9 @@ try {
             }
             stage('Test') {
                 steps {
-                    job('example') {
-                        definition {
-                            cpsScm {
-                                scm {
-                                    
-                                        git('https://github.com/jenkinsci/job-dsl-plugin.git')
-                                }
-                            }
-                        }
+                    script {
+                        echo env.JOB_NAME
+                        sh git show -s --pretty=%an
                     }
                 }
             }
