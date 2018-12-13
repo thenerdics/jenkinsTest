@@ -13,5 +13,6 @@ node {
                 echo 'Something failed, I should sound the klaxons!'
             }
         stage('Test') {
-
+             echo "currentBuild.result1: '${currentBuild.result}'"
+        }
 }
