@@ -19,7 +19,8 @@ pipeline {
                     stage('test1') {
                             steps {
                                 script {
-                                    echo "${currentBuild.result}"
+                                    echo "JOB NAME: ${env.JOB_NAME}"
+                                    echo "WORKSPACE: ${env.WORKSPACE}"
                                 }
                             }
                     }
