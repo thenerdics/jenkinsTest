@@ -1,13 +1,18 @@
+#!/usr/bin/env groovy
+
 node {
-    stage('Example') {
+    
+    
         try {
-            sh '''
-            curl http://google.com
-            '''
-        }
-        catch (exc) {
-            echo 'Something failed, I should sound the klaxons!'
-            throw
-        }
-    }
+                stage('Build') {
+                    sh '''
+                curl http://localhost:8080/api/json?tree=result | grep -i "success"
+                '''
+                } 
+            } catch (exc) {
+                echo 'Something failed, I should sound the klaxons!'
+                throw
+            }
+        stage('Test') {
+            
 }
