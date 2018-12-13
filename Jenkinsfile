@@ -5,7 +5,9 @@ pipeline {
     stages { 
         stage('Example') {
             steps {
-                cd /doesntExist
+                script {
+                    cd /doesntExist
+                }
             }
         }
     }
