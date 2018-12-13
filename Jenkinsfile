@@ -2,11 +2,10 @@
 
 try {
     job('example') {
-            definition {
-                cpsScm {
-                    scm {
-                        git('https://github.com/jenkinsci/job-dsl-plugin.git')
-                    }
+        definition {
+            cpsScm {
+                scm {
+                    git('https://github.com/jenkinsci/job-dsl-plugin.git')
                 }
             }
         }
