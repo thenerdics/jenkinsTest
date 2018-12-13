@@ -1,26 +1,28 @@
 #!/usr/bin/env groovy
 
-try {
-    job('example') {
-        definition {
-            cpsScm {
+pipeline {
+    agent none 
+    stages {
+        stage('Example Build') {
+            job('example-job-from-job-dsl') {
                 scm {
-                    git('https://github.com/jenkinsci/job-dsl-plugin.git')
+                    github('jenkinsci/job-dsl-plugin', 'master')
+                }
+                triggers {
+                    cron("@hourly")
+                }
+                steps {
+                    shell("echo 'Hello World'")
                 }
             }
         }
-    }
-} catch (exc) {
-    echo 'Something failed'
-    currentBuild.result = 'FAILEDZZZZ'
-    stage('notify') {          
-            script {
-                    if (currentBuild.currentResult) {
-                            echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: '${env.message}'"
-                    } else {
-                            echo "${env.JOB_NAME} status is unknown"
-                    }
+        stage('Example Test') {
+            agent { docker 'openjdk:8-jre' } 
+            steps {
+                echo 'Hello, JDK'
+                sh 'java -version'
             }
+        }
     }
 }
 
