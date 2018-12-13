@@ -30,11 +30,7 @@ try {
 }
 
 stage('notify') {
-    steps {
-        scripts {
             echo "${env.JOB_NAME}'s status is: ${currentBuild.currentResult}"
-        }
-    }
 }
 
 /*
