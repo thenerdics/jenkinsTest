@@ -21,7 +21,9 @@ pipeline {
                     definition {
                         cpsScm {
                             scm {
-                                git('https://github.com/jenkinsci/job-dsl-plugin.git')
+                                catchError {
+                                    git('https://github.com/jenkinsci/job-dsl-plugin.git')
+                                }
                             }
                         }
                     }
