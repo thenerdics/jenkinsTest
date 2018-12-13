@@ -8,7 +8,7 @@ pipeline {
                         steps {
                             script { 
                                 try {
-                                    echo "${currentBuild.rawBuild}"
+                                    echo "Pass test"
                                 } catch (exc) {
                                     echo 'Something failed, I should sound the klaxons!'
                                     currentBuild.result = 'FAILEDZZZZ'
