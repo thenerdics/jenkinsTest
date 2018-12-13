@@ -6,8 +6,7 @@ pipeline {
         script {
           try {
             sh  '''
-              # Run unit tests without capturing stdout or logs, generates cobetura reports
-              echo "Yo I'm HERE!!!"
+              curl http://localhost:8080/api/json?tree=result | grep -i "result"
               '''
           } finally {
             sh '''
