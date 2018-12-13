@@ -6,9 +6,11 @@ pipeline {
         stage('Example') {
             steps {
                 script {
-                    sh '''
-                    cd /doesntExist
-                    '''
+                    catchError {
+                        sh '''
+                        cd /doesntExist
+                        '''
+                    }
                 }
             echo currentBuild.result
             }
