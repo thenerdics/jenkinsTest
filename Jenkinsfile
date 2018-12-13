@@ -12,7 +12,7 @@ pipeline {
                         '''
                     }
                 }
-            echo currentBuild.result
+            echo currentBuild.currentResult
             }
         }
     }
