@@ -8,8 +8,7 @@ pipeline {
                         steps {
                             script { 
                                 try {
-                                    env.message = "HELLO MARC MATE,\n IT'S FERDI"
-                                    echo "${message}"
+                                    cd /thisDoesntExist
                                 } catch (exc) {
                                     echo 'Something failed, I should sound the klaxons!'
                                     currentBuild.result = 'FAILEDZZZZ'
