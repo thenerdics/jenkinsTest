@@ -13,8 +13,10 @@ pipeline {
     }
 }
 
-stage('notify') {
-    echo "${env.JOB_NAME}'s status is: ${currentBuild.currentResult}"
+post {
+    stage('notify') {
+        echo "${env.JOB_NAME}'s status is: ${currentBuild.currentResult}"
+    }
 }
 
 /*
