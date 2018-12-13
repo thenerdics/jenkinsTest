@@ -4,23 +4,28 @@ pipeline {
             agent any
 
             stages {
-                    stage('test') {
+                    stage('build') {
+                        try {
                             steps {
-                                    sh 'echo hello'
+                                    sh 'curl '
                             }
+                        } catch (exc) {
+                            echo 'Something failed, I should sound the klaxons!'
+                            currentBuild.result = 'FAILEDZZZZ'
+                        }
                     }
                     stage('test1') {
                             steps {
                                     sh 'echo $TEST'
                             }
                     }
-                    stage('test3') {
+                    stage('notify') {
                             steps {
                                     script {
-                                            if (env.BRANCH_NAME == 'master') {
-                                                    echo 'I only execute on the master branch'
+                                            if (currentBuild.result == 'FAILEDZZZZ') {
+                                                    echo 'The Build failed'
                                             } else {
-                                                    echo 'I execute elsewhere'
+                                                    echo 'Build status is unknown'
                                             }
                                     }
                             }
