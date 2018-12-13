@@ -2,17 +2,17 @@
 
 pipeline {
     agent any
-    stages { 
-        stage('Example') {
-            steps {
-                script {
-                    catchError {
-                        sh '''
-                        ls /
-                        '''
+    stages {
+        catchError { 
+            stage('build') {
+                steps {
+                    script {
+                            sh '''
+                            ls /
+                            '''
                     }
+                echo currentBuild.currentResult
                 }
-            echo currentBuild.currentResult
             }
         }
     }
