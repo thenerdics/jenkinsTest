@@ -18,10 +18,8 @@ try {
             }
             stage('Test') {
                 steps {
-                    script {
-                        echo env.JOB_NAME
-                        echo env.GIT_AUTHOR_NAME
-                    }
+                    echo env.JOB_NAME
+                    echo env.GIT_AUTHOR_NAME
                 }
             }
             stage('notify') {
