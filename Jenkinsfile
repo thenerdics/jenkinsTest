@@ -8,7 +8,7 @@ pipeline {
                         steps {
                             script { 
                                 try {
-                                    curl http://localhost:8080/api/json?tree=result
+                                    cd /variableDoesntExist
                                 } catch (exc) {
                                     echo 'Something failed, I should sound the klaxons!'
                                     currentBuild.result = 'FAILEDZZZZ'
