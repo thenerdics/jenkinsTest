@@ -10,7 +10,9 @@ pipeline {
               echo "Yo I'm HERE!!!"
               '''
           } finally {
-            junit 'nosetests.xml'
+            sh '''
+            echo "exit"
+            '''
           }
         }
       }
