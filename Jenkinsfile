@@ -2,28 +2,35 @@
 
 try {
     pipeline {
-                agent any
-
+            agent any
                 stages {
                         stage('build') {
                             steps {
-                                script { 
-                                    echo 'pipelineJobTryTest'
+                                try {
+                                    script { 
+                                        echo 'pipelineJobTryTest'
+                                    }
+                                } catch(exc) {
+                                    echo 'Build stage failed'
                                 }
                             }
                         }
                         stage('test1') {
                                 steps {
-                                    script {
-                                        echo "JOB NAME: ${env.JOB_NAME}"
-                                        echo "WORKSPACE: ${env.WORKSPACE}"
+                                    try {
+                                        script {
+                                            echo "JOB NAME: ${env.JOB_NAME}"
+                                            echo "WORKSPACE: ${env.WORKSPACE}"
+                                        }
+                                    } catch(exc) {
+                                        echo 'test stage failed'
                                     }
                                 }
                         }
                 }
         }
 } catch (exc) {
-    echo 'Something failed, I should sound the klaxons!'
+    echo 'Something failed'
     currentBuild.result = 'FAILEDZZZZ'
     stage('notify') {          
             script {
