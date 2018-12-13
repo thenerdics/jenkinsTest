@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                pipelineJob('example') {
+                job('example') {
                     definition {
                         cpsScm {
                             scm {
