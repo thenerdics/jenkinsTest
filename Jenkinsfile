@@ -8,7 +8,7 @@ pipeline {
                         steps {
                             script { 
                                 try {
-                                    echo "Pass test"
+                                    echo "${currentBuild.currentResult}"
                                 } catch (exc) {
                                     echo 'Something failed, I should sound the klaxons!'
                                     currentBuild.result = 'FAILEDZZZZ'
@@ -24,7 +24,7 @@ pipeline {
                     stage('notify') {
                             steps {
                                     script {
-                                            if (currentBuild.result) {
+                                            if (currentBuild.currentResult) {
                                                     echo "currentBuild.result1: '${currentBuild.result}'"
                                             } else {
                                                     echo 'Build status is unknown'
