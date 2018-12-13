@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
 pipeline {
-            agent { node { label 'Steps-runner' } }
+            agent any
 
             stages {
                     stage('build') {
