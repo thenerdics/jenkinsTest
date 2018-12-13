@@ -11,8 +11,7 @@ node {
                 } 
             } catch (exc) {
                 echo 'Something failed, I should sound the klaxons!'
-                throw
             }
         stage('Test') {
-            
+
 }
