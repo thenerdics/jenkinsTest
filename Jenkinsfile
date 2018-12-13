@@ -17,8 +17,10 @@ try {
                 }
             }
             stage('Test') {
+                catchError {
                     echo env.JOB_NAME
                     echo env.GIT_AUTHOR_NAME
+                }
             }
         }
     }
