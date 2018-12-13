@@ -18,7 +18,9 @@ pipeline {
                     }
                     stage('test1') {
                             steps {
-                                    echo currentBuild.result
+                                script {
+                                    echo "${currentBuild.result}"
+                                }
                             }
                     }
                     stage('notify') {
