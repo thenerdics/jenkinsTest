@@ -1,8 +1,8 @@
 #!/usr/bin/env groovy
 
+try {
     pipeline {
         agent any
-    try {
         stages { 
             stage('Build') {
                 steps {
@@ -22,21 +22,20 @@
                     echo env.GIT_AUTHOR_NAME
                 }
             }
-            stage('notify') {
-                steps {
-                    scripts {
-                        echo "${env.JOB_NAME}'s status is: ${currentBuild.currentResult}"
-                    }
-                }
-            }
         }
-    } catch(exc) {
-        currentBuild.result = 'FAILEDZZZZ'
-        echo currentBuild.result
     }
+} catch(exc) {
+    currentBuild.result = 'FAILEDZZZZ'
+    echo currentBuild.result
+}
+
+stage('notify') {
+    steps {
+        scripts {
+            echo "${env.JOB_NAME}'s status is: ${currentBuild.currentResult}"
+        }
     }
-
-
+}
 
 /*
 try {
