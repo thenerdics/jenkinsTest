@@ -7,11 +7,9 @@ try {
             stage('Build') {
                 steps {
                     script {
-                        catchError {
-                            sh '''
-                            ls /
-                            '''
-                        }
+                        sh '''
+                        ls /
+                        '''
                     }
                 echo currentBuild.currentResult
                 }
