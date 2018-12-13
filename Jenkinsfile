@@ -2,11 +2,13 @@
 
 
 try {
-    pipelineJob('example') {
-        definition {
-            cps {
-                script(readFileFromWorkspace('project-a-workflow.groovy'))
-                sandbox()
+    pipeline {
+        pipelineJob('example') {
+            definition {
+                cps {
+                    script(readFileFromWorkspace('project-a-workflow.groovy'))
+                    sandbox()
+                }
             }
         }
     }
