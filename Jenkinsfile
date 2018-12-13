@@ -8,7 +8,7 @@ pipeline {
                         steps {
                             script { 
                                 try {
-                                    cd /variableDoesntExist
+                                    cd /
                                 } catch (exc) {
                                     echo 'Something failed, I should sound the klaxons!'
                                     currentBuild.result = 'FAILEDZZZZ'
