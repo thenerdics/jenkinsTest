@@ -4,16 +4,16 @@ pipeline {
             agent any
 
             stages {
-                try {
                     stage('build') {
                         steps {
+                            try {
                                 sh 'curl '
+                            } catch (exc) {
+                                echo 'Something failed, I should sound the klaxons!'
+                                currentBuild.result = 'FAILEDZZZZ'
+                            }
                         }
                     }
-                } catch (exc) {
-                    echo 'Something failed, I should sound the klaxons!'
-                    currentBuild.result = 'FAILEDZZZZ'
-                }
                     stage('test1') {
                             steps {
                                     sh 'echo $TEST'
