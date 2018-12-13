@@ -27,7 +27,7 @@ pipeline {
                             steps {
                                     script {
                                             if (currentBuild.currentResult) {
-                                                    echo "currentBuild.result1: '${currentBuild.currentResult}'"
+                                                    echo "${env.JOB_NAME}: '${currentBuild.currentResult}'"
                                             } else {
                                                     echo 'Build status is unknown'
                                             }
