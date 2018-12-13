@@ -19,10 +19,9 @@ pipeline {
             steps {
                 pipelineJob('example') {
                     definition {
-                        catchError {
-                            cps {
-                                script(readFileFromWorkspace('project-a-workflow.groovy'))
-                                sandbox()
+                        cpsScm {
+                            scm {
+                                git('https://github.com/jenkinsci/job-dsl-plugin.git')
                             }
                         }
                     }
