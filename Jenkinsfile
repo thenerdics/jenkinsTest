@@ -8,7 +8,7 @@ pipeline {
                         steps {
                             script { 
                                 try {
-                                    cd /
+                                    echo "HELLO MARC MATE,\n IT'S FERDI"
                                 } catch (exc) {
                                     echo 'Something failed, I should sound the klaxons!'
                                     currentBuild.result = 'FAILEDZZZZ'
