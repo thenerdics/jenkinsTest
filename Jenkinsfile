@@ -1,47 +1,47 @@
 #!/usr/bin/env groovy
 
-pipeline {
-    agent any
-    stages { 
-        stage('Build') {
-            steps {
-                script {
-                    catchError {
-                        sh '''
-                        ls /
-                        '''
+try {
+    pipeline {
+        agent any
+        stages { 
+            stage('Build') {
+                steps {
+                    script {
+                        catchError {
+                            sh '''
+                            ls /
+                            '''
+                        }
                     }
+                echo currentBuild.currentResult
                 }
-            echo currentBuild.currentResult
             }
-        }
-        stage('Test') {
-            steps {
-                try {
+            stage('Test') {
+                steps {
                     job('example') {
                         definition {
                             cpsScm {
                                 scm {
-                                    git('https://github.com/jenkinsci/job-dsl-plugin.git')
+                                    
+                                        git('https://github.com/jenkinsci/job-dsl-plugin.git')
                                 }
                             }
                         }
                     }
-                } catch(exc) {
-                    echo currentBuild.currentResult
                 }
             }
-        }
-        stage('notify') {
-            steps {
-                scripts {
-                    echo "${env.JOB_NAME}'s status is: ${currentBuild.currentResult}"
+            stage('notify') {
+                steps {
+                    scripts {
+                        echo "${env.JOB_NAME}'s status is: ${currentBuild.currentResult}"
+                    }
                 }
             }
         }
     }
+} catch(exc) {
+    echo "The whole build failed!"
 }
-
 
 
 /*
