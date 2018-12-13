@@ -6,11 +6,13 @@ pipeline {
             stages {
                     stage('build') {
                         steps {
-                            try {
-                                sh 'curl '
-                            } catch (exc) {
-                                echo 'Something failed, I should sound the klaxons!'
-                                currentBuild.result = 'FAILEDZZZZ'
+                            script { 
+                                try {
+                                    sh 'curl '
+                                } catch (exc) {
+                                    echo 'Something failed, I should sound the klaxons!'
+                                    currentBuild.result = 'FAILEDZZZZ'
+                                }
                             }
                         }
                     }
