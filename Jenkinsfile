@@ -1,8 +1,8 @@
 #!/usr/bin/env groovy
 
-try {
     pipeline {
         agent any
+    try {
         stages { 
             stage('Build') {
                 steps {
@@ -30,11 +30,12 @@ try {
                 }
             }
         }
+    } catch(exc) {
+        currentBuild.result = 'FAILEDZZZZ'
+        echo currentBuild.result
     }
-} catch(exc) {
-    currentBuild.result = 'FAILEDZZZZ'
-    echo currentBuild.result
-}
+    }
+
 
 
 /*
