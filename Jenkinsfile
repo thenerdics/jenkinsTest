@@ -24,8 +24,8 @@ pipeline {
                     stage('notify') {
                             steps {
                                     script {
-                                            if (currentBuild.currentResult) {
-                                                    echo "currentBuild.result1: '${currentBuild.result}'"
+                                            if ("${currentBuild.currentResult}") {
+                                                    echo "currentBuild.result1: '${currentBuild.currentResult}'"
                                             } else {
                                                     echo 'Build status is unknown'
                                             }
