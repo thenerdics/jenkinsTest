@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                catchError {
+                try {
                     job('example') {
                         definition {
                             cpsScm {
@@ -27,6 +27,8 @@ pipeline {
                             }
                         }
                     }
+                } catch(exc) {
+                    echo currentBuild.currentResult
                 }
             }
         }
