@@ -40,7 +40,8 @@ try {
         }
     }
 } catch(exc) {
-    echo "The whole build failed!"
+    currentBuild.result = 'FAILEDZZZZ'
+    echo currentBuild.result
 }
 
 
