@@ -22,13 +22,7 @@ try {
                         }
                         stage('notify') {
                                 steps {
-                                        script {
-                                                if (currentBuild.currentResult) {
-                                                        echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: '${env.message}'"
-                                                } else {
-                                                        echo "${env.JOB_NAME} status is unknown"
-                                                }
-                                        }
+                                        
                                 }
                         }
                 }
@@ -36,4 +30,11 @@ try {
 } catch (exc) {
     echo 'Something failed, I should sound the klaxons!'
     currentBuild.result = 'FAILEDZZZZ'
+    script {
+            if (currentBuild.currentResult) {
+                    echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: '${env.message}'"
+            } else {
+                    echo "${env.JOB_NAME} status is unknown"
+            }
+    }
 }
