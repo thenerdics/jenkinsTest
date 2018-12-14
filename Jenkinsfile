@@ -1,6 +1,8 @@
 #!/usr/bin/env groovy
 
-agent any {
+pipeline {
+        agent any 
+
         stage('build') {
             script {
                 sh '''
@@ -15,10 +17,12 @@ agent any {
                 echo env.JOB_NAME
         }
 
-        stage('notify') {
-                echo "${env.JOB_NAME}'s status is: ${currentBuild.currentResult}"
-        }
 }
+
+stage('notify') {
+        echo "${env.JOB_NAME}'s status is: ${currentBuild.currentResult}"
+}
+
 
 /*
 try {
