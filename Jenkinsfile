@@ -6,16 +6,20 @@
                 stages {
                         stage('build') {
                             steps {
-                                script { 
-                                    echo 'pipelineJobTryTest'
+                                catchError {
+                                    script { 
+                                        echo 'pipelineJobTryTest'
+                                    }
                                 }
                             }
                         }
                         stage('test1') {
                                 steps {
-                                    script {
-                                        echo "JOB NAME: ${env.JOB_NAME}"
-                                        echo "WORKSPACE: ${env.WORKSPACE}"
+                                    catchError {
+                                        script {
+                                            echo "JOB NAME: ${env.JOB_NAME}"
+                                            echo "WORKSPACE: ${env.WORKSPACE}"
+                                        }
                                     }
                                 }
                         }
