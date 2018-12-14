@@ -25,7 +25,7 @@ pipeline {
         always {
             echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: '${env.message}'"
             steps {
-                throw err
+                sh throw err
             }
         }
     }
