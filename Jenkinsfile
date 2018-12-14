@@ -9,7 +9,7 @@ pipeline {
                             catchError {
                                 script { 
                                     echo 'pipelineJobTryTest'
-                                    env.message = "The build worked\nYay!"
+                                    env.message = "The build worked, Yay!"
                                     sh './test1.sh "Manvir"'
                                 }
                             }
