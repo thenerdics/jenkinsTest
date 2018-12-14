@@ -4,7 +4,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh cd error
+                script {
+                    cd error
+                }
             }
             post {
                 always {
