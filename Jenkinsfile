@@ -6,6 +6,7 @@ pipeline {
             steps {
                 script {
                     catchError {
+                        set +e
                         cd error
                     }
                 }
