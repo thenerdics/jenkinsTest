@@ -9,7 +9,7 @@ pipeline {
                             catchError {
                                 script { 
                                     echo 'pipelineJobTryTest'
-                                    env.message = 'The build worked\nYay!'
+                                    env.message = "The build worked\nYay!"
                                 }
                             }
                         }
@@ -33,7 +33,7 @@ pipeline {
         always {
             script {
                     if (currentBuild.currentResult) {
-                            echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: '${env.message}'"
+                            echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: \n'${env.message}'"
                     } else {
                             echo "${env.JOB_NAME} status is unknown"
                     }
