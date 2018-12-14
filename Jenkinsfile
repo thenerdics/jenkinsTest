@@ -42,7 +42,7 @@ pipeline {
                             echo "${env.JOB_NAME}'s status is a ${currentBuild.currentResult}"
                             echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: \n'${env.message}'"
                     } else {
-                            echo "${env.job_NAME}'s status is a ${currentBuild.currentResult}"
+                            echo "${env.BUILD_NAME}'s status is a ${currentBuild.currentResult}"
                             echo "${env.JOB_NAME} status is unknown"
                     }
             }
