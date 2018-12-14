@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo env.GIT_AUTHOR_NAME
+                echo env.JOB_NAME
             }
         }
         stage('notify') {
