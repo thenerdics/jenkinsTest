@@ -11,6 +11,11 @@ pipeline {
                 }
             }
         }
+        post {
+            failure {
+                echo "build job failed"
+            }
+        }
         stage('Test') {
             steps {
                 catchError {
@@ -19,14 +24,16 @@ pipeline {
                 }
             }
         }
+        post {
+            failure {
+                echo "test job failed"
+            }
+        }
         
     }
     post {
         always {
             echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: '${env.message}'"
-                script {
-                    echo err
-                }
         }
     }
 }
