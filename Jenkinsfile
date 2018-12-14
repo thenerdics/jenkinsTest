@@ -34,10 +34,8 @@ pipeline {
             }
             post {
             failure {
-                sh '''
                 echo "test job failed"
                 env.message = 'The test was unsuccessful!\n'
-                '''
                     
             }
             success {
