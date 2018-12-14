@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                    sh ''' 
-                   ls /
+                   ls /hithere
                    '''
                 }
             }
