@@ -14,8 +14,9 @@ pipeline {
             }
             post {
                 failure {
-                    steps {
-                        echo "Build job failed"
+                    echo "Build job failed"
+                    script {
+                        
                         currentBuild.result = 'UNSTABLE'
                     }
                 }
