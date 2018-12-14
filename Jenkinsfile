@@ -5,7 +5,9 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    cd error
+                    catchError {
+                        cd error
+                    }
                 }
             }
         }
