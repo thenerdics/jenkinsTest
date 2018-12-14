@@ -13,8 +13,10 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo env.JOB_NAME
-                echo "hello"
+                catchError {
+                    echo env.JOB_NAME
+                    echo "hello"
+                }
             }
         }
         
