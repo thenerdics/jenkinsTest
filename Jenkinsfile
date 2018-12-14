@@ -39,6 +39,7 @@ pipeline {
         always {
             script {
                     if (currentBuild.currentResult != 'FAIL') {
+                            echo currentBuild.currentResult
                             echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: \n'${env.message}'"
                     } else {
                             echo "${env.JOB_NAME} status is unknown"
