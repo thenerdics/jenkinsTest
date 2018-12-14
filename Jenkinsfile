@@ -5,9 +5,9 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    catchError {
+                    
                         ls -al
-                    }
+                    
                 }
             }
             post {
