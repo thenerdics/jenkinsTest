@@ -9,7 +9,7 @@ pipeline {
                             catchError {
                                 script { 
                                     echo 'pipelineJobTryTest'
-                                    env.message = "The build worked\nYay!"
+                                    env.message = "The build Worked\nYay!"
                                 }
                             }
                         }
@@ -24,6 +24,7 @@ pipeline {
                                             echo "The message contains the correct words"
                                         } else {
                                             echo "The message has unknown syntax??"
+                                            result = 'FAILEDZZZ'
                                         }
                                     }
                                 }
