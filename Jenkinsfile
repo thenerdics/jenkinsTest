@@ -1,22 +1,19 @@
 #!/usr/bin/env groovy
 
 stage('build') {
-    pipeline {
-        agent any
-        stages { 
-            stage('Build') {
-                steps {
-                    script {
-                        sh '''
-                        ls /
-                        '''
-                    }
-                echo currentBuild.currentResult
+    stages { 
+        stage('Build') {
+            steps {
+                script {
+                    sh '''
+                    ls /
+                    '''
                 }
+            echo currentBuild.currentResult
             }
-            stage('Job Info') {
-                echo env.JOB_NAME
-            }
+        }
+        stage('Job Info') {
+            echo env.JOB_NAME
         }
     }
 }
