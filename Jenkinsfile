@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-node {
+
     job('example') {
         definition {
             cpsScm {
@@ -10,7 +10,7 @@ node {
             }
         }
     }
-} 
+
 
 if (exc) {
     echo 'Something failed'
