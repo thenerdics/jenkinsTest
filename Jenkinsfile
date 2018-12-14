@@ -20,6 +20,7 @@ pipeline {
                                     script {
                                         echo "JOB NAME: ${env.JOB_NAME}"
                                         echo "WORKSPACE: ${env.WORKSPACE}"
+                                        env.message =~ "worked"
                                     }
                                 }
                             }
