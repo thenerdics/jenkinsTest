@@ -22,7 +22,7 @@ pipeline {
         }
         
         stage('Test') {
-            steps {
+            always {
                 catchError {
                     echo env.JOB_NAME
                     echo "hello"
