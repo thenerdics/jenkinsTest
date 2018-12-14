@@ -18,13 +18,17 @@ pipeline {
 
         stage('Job Info') {
             steps {
-                echo env.JOB_NAME
+                script {
+                    echo env.JOB_NAME
+                }
             }
         }
 
         stage('notify') {
             steps {
-                echo "${env.JOB_NAME}'s status is: ${currentBuild.currentResult}"
+                script {
+                    echo "${env.JOB_NAME}'s status is: ${currentBuild.currentResult}"
+                }
             }
         }
 
