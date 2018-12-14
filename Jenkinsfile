@@ -1,7 +1,4 @@
-#!/usr/bin/env groovy
-
-
-    pipelineJob('example') {
+ job('example') {
         definition {
             cpsScm {
                 scm {
