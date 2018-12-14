@@ -8,10 +8,11 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                catchError {
                 script {
-                    
-                        ls /
+                    try {
+                        ls -al
+                    }   catch(exc) {
+                        echo exc
                     }
                 }
             }
@@ -24,12 +25,9 @@ pipeline {
         
         stage('Test') {
             steps {
-                catchError {
                 script {
-                    
                     echo env.JOB_NAME
                     echo "hello"
-                    }
                 }
             }
             post {
