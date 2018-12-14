@@ -1,40 +1,15 @@
 #!/usr/bin/env groovy
-
 pipeline {
-        agent any 
-
+    agent any
     stages {
-        stage('build') {
+        stage('Example') {
             steps {
-                script {
-                    sh '''
-                    ls /
-                    '''
-                }
-            }
-            echo currentBuild.currentResult
-        }
-
-
-        stage('Job Info') {
-            steps {
-                script {
-                    echo env.JOB_NAME
-                }
+                echo 'Hello World'
             }
         }
-
-        stage('notify') {
-            steps {
-                script {
-                    echo "${env.JOB_NAME}'s status is: ${currentBuild.currentResult}"
-                }
-            }
-        }
-
     }
-
 }
+
 
 
 
