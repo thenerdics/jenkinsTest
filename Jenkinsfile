@@ -3,12 +3,8 @@ pipeline {
     agent any
     stages {
         stage('Build') {
-            steps {
-                script {
-                    
-                        ls -al
-                    
-                }
+            steps { 
+                    sh 'ls /'
             }
             post {
             failure {
@@ -19,9 +15,8 @@ pipeline {
         
         stage('Test') {
             steps {
-                
                     echo env.JOB_NAME
-                    echo "hello"
+                    sh echo "hello"
                 
             }
             post {
