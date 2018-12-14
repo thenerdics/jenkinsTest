@@ -1,40 +1,34 @@
 #!/usr/bin/env groovy
-
-
-def STAGE = env
-
 pipeline {
     agent any
     stages {
         stage('Build') {
             steps {
                 script {
-                    try {
-                        sh 'ls /'
-                    }   catch(exc) {
-                        echo exc
+                    catchError {
+                        ls -al
                     }
                 }
             }
             post {
-                failure {
-                    echo "Build job failed"
-                }
+            failure {
+                echo "build job failed"
             }
+        }
         }
         
         stage('Test') {
-            parallel {
-                steps {
+            steps {
+                catchError {
                     echo env.JOB_NAME
                     echo "hello"
                 }
             }
             post {
-                failure {
-                    echo "Test job failed"
-                }
+            failure {
+                echo "test job failed"
             }
+        }
         }
         
         
