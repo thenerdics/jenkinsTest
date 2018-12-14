@@ -5,16 +5,14 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    
-                        ls /
-                    
+                    ls /
                 }
             }
             post {
-            failure {
-                echo "build job failed"
+                failure {
+                    echo "build job failed"
+                }
             }
-        }
         }
         
         stage('Test') {
