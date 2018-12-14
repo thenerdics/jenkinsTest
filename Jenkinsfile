@@ -13,10 +13,10 @@ pipeline {
                 echo "hello"
             }
         }
-    }
-    post {
-        always {
-            echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: '${env.message}'"
+        post {
+            always {
+                echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: '${env.message}'"
+            }
         }
     }
 }
