@@ -1,21 +1,23 @@
 #!/usr/bin/env groovy
 
-stage('build') {
-    script {
-        sh '''
-        ls /
-        '''
-    }
-    echo currentBuild.currentResult
-}
+node any {
+        stage('build') {
+            script {
+                sh '''
+                ls /
+                '''
+            }
+            echo currentBuild.currentResult
+        }
 
 
-stage('Job Info') {
-        echo env.JOB_NAME
-}
+        stage('Job Info') {
+                echo env.JOB_NAME
+        }
 
-stage('notify') {
-        echo "${env.JOB_NAME}'s status is: ${currentBuild.currentResult}"
+        stage('notify') {
+                echo "${env.JOB_NAME}'s status is: ${currentBuild.currentResult}"
+        }
 }
 
 /*
