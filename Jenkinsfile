@@ -31,13 +31,11 @@ pipeline {
             currentBuild.result = 'FAILEDZZZZ'
         }
         always {
-            stage('notify') {          
-                    script {
-                            if (currentBuild.currentResult) {
-                                    echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: '${env.message}'"
-                            } else {
-                                    echo "${env.JOB_NAME} status is unknown"
-                            }
+            script {
+                    if (currentBuild.currentResult) {
+                            echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: '${env.message}'"
+                    } else {
+                            echo "${env.JOB_NAME} status is unknown"
                     }
             }
         }
