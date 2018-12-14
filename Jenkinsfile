@@ -32,7 +32,7 @@ pipeline {
                 echo "test job failed"
             }
             success {
-                env.message = env.message + 'The testing stage was a success'
+                env.message = "'${env.message}'The testing stage was a success!"
             }
         }
         }
