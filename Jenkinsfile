@@ -28,7 +28,6 @@ pipeline {
     post {
         failure {
             echo 'Something failed'
-            currentBuild.result = 'FAILEDZZZZ'
         }
         always {
             script {
