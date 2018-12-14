@@ -7,6 +7,8 @@ pipeline {
                 steps {
                     cd
                 }
+            } catch(exc) {
+                echo 'failed'
             }
         }
         stage('Test') {
