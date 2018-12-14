@@ -19,7 +19,6 @@ pipeline {
                                 catchError {
                                     script {
                                         echo "JOB NAME: ${env.JOB_NAME}"
-                                        echo "WORKSPACE: ${env.WORKSPACE}"
                                         if (env.message =~ "Yay"){
                                             echo "The message contains the correct words"
                                         } else {
@@ -39,7 +38,7 @@ pipeline {
         always {
             script {
                     if (currentBuild.currentResult == 'SUCCESS') {
-                            echo "${BUILD_NAME}'s status is a ${currentBuild.currentResult}"
+                            echo "${env.BUILD_NAME}'s status is a ${currentBuild.currentResult}"
                             echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: \n'${env.message}'"
                     } else {
                             echo "${BUILD_NAME}'s status is a ${currentBuild.currentResult}"
