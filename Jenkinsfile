@@ -44,6 +44,7 @@ pipeline {
                     } else {
                             echo "${env.BUILD_NAME}'s status is a ${currentBuild.currentResult}"
                             echo "${env.JOB_NAME} status is unknown"
+                            printenv
                     }
             }
         }
