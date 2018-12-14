@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                    sh ''' 
-                   ls /hithere
+                   ls /
                    '''
                 }
             }
@@ -30,7 +30,7 @@ pipeline {
             steps {
                 
                     echo env.JOB_NAME
-                    echo "hello"
+                    cd
                 
             }
             post {
