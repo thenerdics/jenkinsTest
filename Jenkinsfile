@@ -10,12 +10,13 @@ pipeline {
                     }
                 }
             }
-        }
-        post {
+            post {
             failure {
                 echo "build job failed"
             }
         }
+        }
+        
         stage('Test') {
             steps {
                 catchError {
@@ -23,12 +24,13 @@ pipeline {
                     echo "hello"
                 }
             }
-        }
-        post {
+            post {
             failure {
                 echo "test job failed"
             }
         }
+        }
+        
         
     }
     post {
