@@ -1,23 +1,19 @@
 #!/usr/bin/env groovy
 
 stage('build') {
-    stages { 
-        stage('Build') {
-            steps {
+        steps {
                 script {
                     sh '''
                     ls /
                     '''
                 }
-            echo currentBuild.currentResult
-            }
+        echo currentBuild.currentResult
         }
-        stage('Job Info') {
-            echo env.JOB_NAME
-        }
-    }
 }
 
+stage('Job Info') {
+        echo env.JOB_NAME
+}
 
 stage('notify') {
         echo "${env.JOB_NAME}'s status is: ${currentBuild.currentResult}"
