@@ -11,6 +11,8 @@ def getStage(currentBuild){
     }
 }
 
+def STAGE = getStage(currentBuild)
+
 pipeline {
     agent any
     stages {
@@ -24,7 +26,6 @@ pipeline {
             }
             post {
                 failure {
-                    STAGE = getStage(currentBuild)
                     echo "${STAGE} job failed"
                 }
             }
@@ -39,7 +40,6 @@ pipeline {
             }
             post {
                 failure {
-                    STAGE = getStage(currentBuild)
                     echo "${STAGE} job failed"
                 }
             }
