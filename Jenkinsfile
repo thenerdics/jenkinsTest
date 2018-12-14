@@ -21,17 +21,19 @@
                         }
                 }
         }
-catch (exc) {
-    echo 'Something failed'
-    currentBuild.result = 'FAILEDZZZZ'
-    stage('notify') {          
-            script {
-                    if (currentBuild.currentResult) {
-                            echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: '${env.message}'"
-                    } else {
-                            echo "${env.JOB_NAME} status is unknown"
-                    }
-            }
+post {
+    failure {
+        echo 'Something failed'
+        currentBuild.result = 'FAILEDZZZZ'
+        stage('notify') {          
+                script {
+                        if (currentBuild.currentResult) {
+                                echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: '${env.message}'"
+                        } else {
+                                echo "${env.JOB_NAME} status is unknown"
+                        }
+                }
+        }
     }
 }
 
