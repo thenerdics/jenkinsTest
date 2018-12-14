@@ -10,6 +10,7 @@ pipeline {
                                 script { 
                                     echo 'pipelineJobTryTest'
                                     env.message = "The build worked\nYay!"
+                                    ./test1.sh
                                 }
                             }
                         }
