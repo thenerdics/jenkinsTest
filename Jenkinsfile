@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-try {
+node {
     job('example') {
         definition {
             cpsScm {
@@ -10,7 +10,9 @@ try {
             }
         }
     }
-} catch (exc) {
+} 
+
+if (exc) {
     echo 'Something failed'
     currentBuild.result = 'FAILEDZZZZ'
     stage('notify') {          
