@@ -14,13 +14,13 @@ pipeline {
                 failure {
                     echo "build job failed"
                     script {
-                        env.message = 'The build was unsuccessful!\n'
+                        env.buildmessage = 'The build was unsuccessful!\n'
                     }
 
                 }
                 success {
                     script {
-                        env.message = 'The build was a success!\n'
+                        env.buildmessage = 'The build was a success!\n'
                     }
                 }
             }
@@ -41,7 +41,7 @@ pipeline {
             }
             success {
                 script {
-                    env.message = "${env.message}The testing stage was a success!"
+                    env.message = "${env.buildmessage}The testing stage was a success!"
                 }
                 
             }
