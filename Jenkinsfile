@@ -4,13 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                try {
-                    script {
-                        cd
-                    }
-                } catch(exc) {
-                echo 'failed'
-                }
+                echo 'hello'
             }
         }
         stage('Test') {
@@ -20,14 +14,16 @@ pipeline {
             }
         }
     }
-    post {
-            always {
-                echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: '${env.message}'"
-            }
-        }
 }
 
-
+pipeline {
+    agent any
+    post {
+        always {
+            echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: '${env.message}'"
+        }
+    }
+}
 
 
 /*
