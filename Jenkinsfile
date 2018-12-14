@@ -1,3 +1,5 @@
+#!/usr/bin/env groovy 
+ 
  pipeline{
      job('example') {
         definition {
