@@ -10,7 +10,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh ls /
+                        sh 'ls /'
                     }   catch(exc) {
                         echo exc
                     }
