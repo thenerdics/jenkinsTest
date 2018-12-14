@@ -1,4 +1,16 @@
 #!/usr/bin/env groovy
+
+def getStage(currentBuild){
+    def build = currentBuild.getRawBuild()
+    def execution = build.getExecution()
+    def executionHeads = execution.getCurrentHeads()
+    def stepStartNode = getStepStartNode(executionHeads)
+
+    if(stepStartNode){
+        return stepStartNode.getDisplayName()
+    }
+}
+
 pipeline {
     agent any
     stages {
@@ -11,10 +23,11 @@ pipeline {
                 }
             }
             post {
-            failure {
-                echo "build job failed"
+                failure {
+                    STAGE = getStage(currentBuild)
+                    echo "${STAGE} job failed"
+                }
             }
-        }
         }
         
         stage('Test') {
@@ -25,10 +38,11 @@ pipeline {
                 }
             }
             post {
-            failure {
-                echo "test job failed"
+                failure {
+                    STAGE = getStage(currentBuild)
+                    echo "${STAGE} job failed"
+                }
             }
-        }
         }
         
         
