@@ -10,6 +10,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo env.JOB_NAME
+                echo "hello"
             }
         }
         stage('notify') {
