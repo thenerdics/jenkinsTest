@@ -24,11 +24,9 @@ pipeline {
     post {
         always {
             echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: '${env.message}'"
-            steps {
                 script {
                     throw err
                 }
-            }
         }
     }
 }
