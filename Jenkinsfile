@@ -8,8 +8,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                catchError {
                 script {
-                    catchError {
+                    
                         ls /
                     }
                 }
@@ -23,8 +24,9 @@ pipeline {
         
         stage('Test') {
             steps {
+                catchError {
                 script {
-                    catchError {
+                    
                     echo env.JOB_NAME
                     echo "hello"
                     }
