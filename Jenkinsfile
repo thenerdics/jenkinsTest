@@ -9,16 +9,14 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                        ls -al
+                    catchError {
+                        ls /
+                    }
                 }
             }
             post {
                 failure {
                     echo "Build job failed"
-                    script {
-                        
-                        currentBuild.result = 'SUCCESS'
-                    }
                 }
             }
         }
@@ -26,8 +24,10 @@ pipeline {
         stage('Test') {
             steps {
                 script {
+                    catchError {
                     echo env.JOB_NAME
                     echo "hello"
+                    }
                 }
             }
             post {
