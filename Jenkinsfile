@@ -4,8 +4,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                catchError {
+                try {
                     cd
+                } catch(exc) {
+                    echo 'failed'
                 }
             }
         }
