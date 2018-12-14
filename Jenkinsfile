@@ -5,7 +5,9 @@ pipeline {
         stage('Build') {
             try {
                 steps {
-                    cd
+                    script {
+                        cd
+                    }
                 }
             } catch(exc) {
                 echo 'failed'
