@@ -24,8 +24,8 @@ pipeline {
         }
         
         stage('Test') {
-            post {
-                always {
+            parallel {
+                steps {
                     echo env.JOB_NAME
                     echo "hello"
                 }
