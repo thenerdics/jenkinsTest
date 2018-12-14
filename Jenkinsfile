@@ -10,7 +10,6 @@ pipeline {
                                 script { 
                                     echo 'pipelineJobTryTest'
                                     env.message = "The build worked\nYay!"
-                                    sudo chmod 755 test1.sh 
                                     sh './test1.sh "Manvir"'
                                 }
                             }
