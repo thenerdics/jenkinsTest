@@ -1,35 +1,5 @@
 #!/usr/bin/env groovy 
  
- pipeline{
-     job('example') {
-        definition {
-            cpsScm {
-                scm {
-                    git('https://github.com/jenkinsci/job-dsl-plugin.git')
-                }
-            }
-        }
-    }
-
-    steps {
-        if (exc) {
-            echo 'Something failed'
-            currentBuild.result = 'FAILEDZZZZ'
-            stage('notify') {          
-                    script {
-                            if (currentBuild.currentResult) {
-                                    echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: '${env.message}'"
-                            } else {
-                                    echo "${env.JOB_NAME} status is unknown"
-                            }
-                    }
-            }
-        }
-    }
- }
-
-
-/*
 try {
     pipeline {
             agent any
@@ -64,5 +34,5 @@ try {
             }
     }
 }
-*/
+
 
