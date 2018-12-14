@@ -1,17 +1,7 @@
 #!/usr/bin/env groovy
 
-def getStage(currentBuild){
-    def build = currentBuild
-    def execution = build.getExecution()
-    def executionHeads = execution.getCurrentHeads()
-    def stepStartNode = getStepStartNode(executionHeads)
 
-    if(stepStartNode){
-        return stepStartNode.getDisplayName()
-    }
-}
-
-def STAGE = getStage(currentBuild)
+def STAGE = env
 
 pipeline {
     agent any
@@ -26,7 +16,7 @@ pipeline {
             }
             post {
                 failure {
-                    echo "${STAGE} job failed"
+                    echo "Build job failed"
                 }
             }
         }
@@ -40,7 +30,7 @@ pipeline {
             }
             post {
                 failure {
-                    echo "${STAGE} job failed"
+                    echo "Test job failed"
                 }
             }
         }
