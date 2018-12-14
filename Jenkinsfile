@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
 def getStage(currentBuild){
-    def build = currentBuild.rawBuild
+    def build = currentBuild
     def execution = build.getExecution()
     def executionHeads = execution.getCurrentHeads()
     def stepStartNode = getStepStartNode(executionHeads)
