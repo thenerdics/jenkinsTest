@@ -14,7 +14,7 @@ pipeline {
         }
         stage('notify') {
             steps {
-                echo 'Hello World'
+                echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: '${env.message}'"
             }
         }
     }
