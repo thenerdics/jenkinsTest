@@ -28,10 +28,8 @@ pipeline {
         
         stage('Test') {
             steps {
-                catchError {
                     echo env.JOB_NAME
                     sh 'cd /hiht'
-                }
                 
             }
             post {
