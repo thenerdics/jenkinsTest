@@ -1,4 +1,5 @@
- pipeline(pipelineJob('example')) {
+ pipeline{
+     pipelineJob('example') {
         definition {
             cpsScm {
                 scm {
@@ -22,6 +23,7 @@ if (exc) {
             }
     }
 }
+ }
 
 
 /*
