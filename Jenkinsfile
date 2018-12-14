@@ -9,25 +9,22 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    
                         ls -al
-                    
                 }
             }
             post {
                 failure {
                     echo "Build job failed"
+                    currentBuild.result = 'UNSTABLE'
                 }
             }
         }
         
         stage('Test') {
-            post {
-                always {
-                    catchError {
-                        echo env.JOB_NAME
-                        echo "hello"
-                    }
+            steps {
+                script {
+                    echo env.JOB_NAME
+                    echo "hello"
                 }
             }
             post {
