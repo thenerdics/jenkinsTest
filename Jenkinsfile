@@ -22,10 +22,12 @@ pipeline {
         }
         
         stage('Test') {
-            always {
-                catchError {
-                    echo env.JOB_NAME
-                    echo "hello"
+            post {
+                always {
+                    catchError {
+                        echo env.JOB_NAME
+                        echo "hello"
+                    }
                 }
             }
             post {
