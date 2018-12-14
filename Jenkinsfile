@@ -38,10 +38,11 @@ pipeline {
         }
         always {
             script {
-                    if (currentBuild.result == 'SUCCESS') {
-                            echo currentBuild.result
+                    if (currentBuild.currentResult == 'SUCCESS') {
+                            echo "${BUILD_NAME}'s status is a ${currentBuild.currentResult}"
                             echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: \n'${env.message}'"
                     } else {
+                            echo "${BUILD_NAME}'s status is a ${currentBuild.currentResult}"
                             echo "${env.JOB_NAME} status is unknown"
                     }
             }
