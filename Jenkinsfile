@@ -8,25 +8,20 @@ pipeline {
                     cd error
                 }
             }
-            post {
-                always {
-                    echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: '${env.message}'"
-                }
-            }
         }
         stage('Test') {
             steps {
                 echo env.JOB_NAME
                 echo "hello"
             }
-            post {
+        }
+        
+    }
+    post {
                 always {
                     echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: '${env.message}'"
                 }
             }
-        }
-        
-    }
 }
 
 
