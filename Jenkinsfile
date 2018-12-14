@@ -5,7 +5,9 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    ls /
+                   sh ''' 
+                   ls /
+                   '''
                 }
             }
             post {
