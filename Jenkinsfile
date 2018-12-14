@@ -9,6 +9,7 @@ pipeline {
                             catchError {
                                 script { 
                                     echo 'pipelineJobTryTest'
+                                    env.message = 'The build worked\nYay!'
                                 }
                             }
                         }
