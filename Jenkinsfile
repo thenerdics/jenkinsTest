@@ -1,15 +1,14 @@
 #!/usr/bin/env groovy
 
 stage('build') {
-        steps {
-                script {
-                    sh '''
-                    ls /
-                    '''
-                }
-        echo currentBuild.currentResult
-        }
+    script {
+        sh '''
+        ls /
+        '''
+    }
+    echo currentBuild.currentResult
 }
+
 
 stage('Job Info') {
         echo env.JOB_NAME
