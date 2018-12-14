@@ -19,16 +19,16 @@ pipeline {
                 echo "hello"
             }
         }
-        stage('notify') {
-            steps {
-                echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: '${env.message}'"
-            }
-        }
+        
     }
 }
 
 
-
+stage('notify') {
+            steps {
+                echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: '${env.message}'"
+            }
+        }
 
 /*
 try {
