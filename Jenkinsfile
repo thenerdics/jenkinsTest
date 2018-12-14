@@ -14,6 +14,9 @@ pipeline {
                 failure {
                     echo "build job failed"
                 }
+                success {
+                    env.message = 'The build was a success!\n'
+                }
             }
         }
         
@@ -27,6 +30,9 @@ pipeline {
             post {
             failure {
                 echo "test job failed"
+            }
+            success {
+                env.message = env.message + 'The testing stage was a success'
             }
         }
         }
