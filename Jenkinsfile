@@ -5,9 +5,9 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    catchError {
+                    
                         ls -al
-                    }
+                    
                 }
             }
             post {
@@ -19,10 +19,10 @@ pipeline {
         
         stage('Test') {
             steps {
-                catchError {
+                
                     echo env.JOB_NAME
                     echo "hello"
-                }
+                
             }
             post {
             failure {
