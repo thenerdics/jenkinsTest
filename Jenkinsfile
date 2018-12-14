@@ -1,5 +1,5 @@
  pipeline{
-     pipelineJob('example') {
+     job('example') {
         definition {
             cpsScm {
                 scm {
