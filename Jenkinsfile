@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-node any {
+agent any {
         stage('build') {
             script {
                 sh '''
