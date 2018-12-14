@@ -5,10 +5,12 @@ pipeline {
 
     stages {
         stage('build') {
-            script {
-                sh '''
-                ls /
-                '''
+            steps {
+                script {
+                    sh '''
+                    ls /
+                    '''
+                }
             }
             echo currentBuild.currentResult
         }
