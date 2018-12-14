@@ -30,7 +30,7 @@ pipeline {
             steps {
                 catchError {
                     echo env.JOB_NAME
-                    cd
+                    sh 'cd /hiht'
                 }
                 
             }
