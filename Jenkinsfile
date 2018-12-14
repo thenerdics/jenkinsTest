@@ -3,11 +3,9 @@ pipeline {
     agent any
     stages {
         stage('Build') {
-            steps {
-                try {
+            try {
+                steps {
                     cd
-                } catch(exc) {
-                    echo 'failed'
                 }
             }
         }
