@@ -13,6 +13,10 @@ pipeline {
             post {
                 failure {
                     echo "build job failed"
+                    script {
+                        env.message = 'The build was unsuccessful!\n'
+                    }
+
                 }
                 success {
                     script {
@@ -32,10 +36,13 @@ pipeline {
             post {
             failure {
                 echo "test job failed"
+                script {
+                        env.message = 'The test was unsuccessful!\n'
+                    }
             }
             success {
                 script {
-                    env.message = "'${env.message}'The testing stage was a success!"
+                    env.message = "${env.message}The testing stage was a success!"
                 }
                 
             }
@@ -46,7 +53,7 @@ pipeline {
     }
     post {
         always {
-            echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is: '${env.message}'"
+            echo "${env.JOB_NAME} status is: '${currentBuild.currentResult}'\nMessage is:\n '${env.message}'"
         }
     }
 }
