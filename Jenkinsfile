@@ -14,8 +14,10 @@ pipeline {
             }
             post {
                 failure {
-                    echo "Build job failed"
-                    currentBuild.result = 'UNSTABLE'
+                    steps {
+                        echo "Build job failed"
+                        currentBuild.result = 'UNSTABLE'
+                    }
                 }
             }
         }
