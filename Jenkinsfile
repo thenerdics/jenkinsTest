@@ -10,7 +10,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        ls -al
+                        sh ls /
                     }   catch(exc) {
                         echo exc
                     }
@@ -24,8 +24,8 @@ pipeline {
         }
         
         stage('Test') {
-            steps {
-                script {
+            post {
+                always {
                     echo env.JOB_NAME
                     echo "hello"
                 }
