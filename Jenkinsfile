@@ -20,7 +20,11 @@ pipeline {
                                     script {
                                         echo "JOB NAME: ${env.JOB_NAME}"
                                         echo "WORKSPACE: ${env.WORKSPACE}"
-                                        env.message =~ "worked"
+                                        if (env.message =~ "worked"){
+                                            echo "The message contains the correct words"
+                                        } else {
+                                            echo "The message has unknown syntax??"
+                                        }
                                     }
                                 }
                             }
