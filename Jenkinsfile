@@ -4,7 +4,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                cd
+                catchError {
+                    cd
+                }
             }
         }
         stage('Test') {
