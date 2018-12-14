@@ -24,7 +24,7 @@ pipeline {
                                             echo "The message contains the correct words"
                                         } else {
                                             echo "The message has unknown syntax??"
-                                            result = 'FAILEDZZZ'
+                                            result = 'FAIL'
                                         }
                                     }
                                 }
