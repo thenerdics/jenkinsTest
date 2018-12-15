@@ -29,7 +29,7 @@ pipeline {
                                             } else {
                                                 message = "The message has unknown syntax??"
                                                 echo message
-                                                currentBuild.result = 'FAIL'
+                                                currentBuild.result = 'FAIL' =foofail
                                             }
                                         }
                                     }
