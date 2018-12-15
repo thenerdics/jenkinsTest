@@ -9,7 +9,6 @@ pipeline {
                             catchError {
                                 script { 
                                     echo 'pipelineJobTryTest'
-                                    ruby 'puts '
                                     sh 'git log | grep -v1 "$GIT_COMMIT" | grep -m1 -e "Author" | tr -d ":,<,>"'
                                     sh './test1.sh "$GIT_AUTHOR"'
                                     sh 'ruby --version'
@@ -47,6 +46,10 @@ pipeline {
                     if (currentBuild.currentResult == 'SUCCESS') {
                             echo "${env.JOB_BASE_NAME} status is: '${currentBuild.currentResult}'\nMessage is: \n'${message}'"
                     } else {
+                            sh 'git log | grep -v1 "$GIT_COMMIT" | grep -m1 -e "Author" | tr -d ":,<,>"'
+                            sh './test1.sh "$GIT_AUTHOR"'
+                            sh 'ruby --version'
+                            message="The build worked, Yay!\nWell done ${GIT_AUTHOR}"
                             echo "${env.JOB_BASE_NAME}'s status is a ${currentBuild.currentResult}"
                             echo "${env.JOB_BASE_NAME} error: ${message}"
                             sh 'printenv'
