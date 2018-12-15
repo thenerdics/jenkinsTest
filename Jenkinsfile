@@ -15,9 +15,9 @@ pipeline {
                                     '''
                                     message="The build worked, Yay!\nWell done ${env.GIT_AUTHOR}"
                                 }
-                                def message = env.message
                             }
                         }
+                        def message = env.message
                     }
                     stage('test1') {
                             steps {
