@@ -11,7 +11,7 @@ pipeline {
                                     echo 'pipelineJobTryTest'
                                     
                                     GIT_AUTHOR = sh 'git log | grep -v1 "$GIT_COMMIT" | grep -m1 -e "Author" | tr -d ":,<,>"'
-                                    ./test1.sh "$GIT_AUTHOR"
+                                    sh './test1.sh "$GIT_AUTHOR"'
                                     
                                     message="The build worked, Yay!\nWell done ${GIT_AUTHOR}"
                                 }
