@@ -46,7 +46,7 @@ pipeline {
                             echo "${env.JOB_BASE_NAME}'s status is a ${currentBuild.currentResult}"
                             echo "${env.JOB_BASE_NAME} status is: '${currentBuild.currentResult}'\nMessage is: \n'${env.message}'"
                     } else {
-                            echo "${env.BUILD_NAME}'s status is a ${currentBuild.currentResult}"
+                            echo "${env.JOB_BASE_NAME}'s status is a ${currentBuild.currentResult}"
                             echo "${env.JOB_BASE_NAME} error: ${env.message}"
                             sh 'printenv'
                     }
