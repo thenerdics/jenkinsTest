@@ -14,7 +14,7 @@ pipeline {
                                     ./test1.sh "$GIT_AUTHOR"
                                     '''
                                     env.message = "The build worked, Yay!\nWell done ${env.GIT_AUTHOR}"
-                                    echo env.message
+                                    echo message
                                 }
                             }
                         }
@@ -45,10 +45,10 @@ pipeline {
             script {
                     if (currentBuild.currentResult == 'SUCCESS') {
                             echo "${env.JOB_BASE_NAME}'s status is a ${currentBuild.currentResult}"
-                            echo "${env.JOB_BASE_NAME} status is: '${currentBuild.currentResult}'\nMessage is: \n'${env.message}'"
+                            echo "${env.JOB_BASE_NAME} status is: '${currentBuild.currentResult}'\nMessage is: \n'${message}'"
                     } else {
                             echo "${env.JOB_BASE_NAME}'s status is a ${currentBuild.currentResult}"
-                            echo "${env.JOB_BASE_NAME} error: ${env.message}"
+                            echo "${env.JOB_BASE_NAME} error: ${message}"
                             sh 'printenv'
                     }
             }
