@@ -9,10 +9,9 @@ pipeline {
                             catchError {
                                 script { 
                                     echo 'pipelineJobTryTest'
-                                    sh '''
-                                    GIT_AUTHOR=$(git log | grep -v1 "$GIT_COMMIT" | grep -m1 -e "Author" | tr -d ":,<,>")
-                                    ./test1.sh "$GIT_AUTHOR"
-                                    '''
+                                    
+                                    GIT_AUTHOR = sh 'git log | grep -v1 "$GIT_COMMIT" | grep -m1 -e "Author" | tr -d ":,<,>"'
+                                    sh './test1.sh "$GIT_AUTHOR"'
                                     env.message = "The build worked, Yay!\nWell done ${env.GIT_AUTHOR}"
                                 }
                             }
