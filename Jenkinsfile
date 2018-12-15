@@ -12,7 +12,7 @@ pipeline {
                                     // sh 'GIT_AUTHOR=$(git log | grep -v1 "$GIT_COMMIT" | grep -m1 -e "Author" | tr -d ":,<,>")'
                                     // sh 'export GIT_AUTHOR=$GIT_AUTHOR'
                                     // sh './test1.sh $GIT_AUTHOR'
-                                    wait(50)
+                                    sleep(5)
                                     message="The build worked, Yay!\nWell done ${env.GIT_AUTHOR}"
                                 }
                             }
