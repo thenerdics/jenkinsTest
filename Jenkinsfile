@@ -13,7 +13,7 @@ pipeline {
                                     GIT_AUTHOR=$(git log | grep -v1 "$GIT_COMMIT" | grep -m1 -e "Author" | tr -d ":,<,>")
                                     ./test1.sh "$GIT_AUTHOR"
                                     '''
-                                    env.message = "The build worked, Yay!\nWell done ${env.GIT_AUTHOR}"
+                                    env.message = "The build worked, oay!\nWell done ${env.GIT_AUTHOR}"
                                 }
                             }
                         }
@@ -26,7 +26,8 @@ pipeline {
                                         if (env.message =~ "Yay"){
                                             echo "The message contains the correct words"
                                         } else {
-                                            echo "The message has unknown syntax??"
+                                            env.message = "The message has unknown syntax??"
+                                            echo env.message
                                             currenBuild.result = 'FAIL'
                                         }
                                     }
