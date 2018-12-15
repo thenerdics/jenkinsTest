@@ -9,8 +9,8 @@ pipeline {
                             catchError {
                                 script { 
                                     echo 'pipelineJobTryTest'
-                                    
-                                    GIT_AUTHOR = sh 'git log | grep -v1 "$GIT_COMMIT" | grep -m1 -e "Author" | tr -d ":,<,>"'
+                                    ruby 'puts '
+                                    sh 'git log | grep -v1 "$GIT_COMMIT" | grep -m1 -e "Author" | tr -d ":,<,>"'
                                     sh './test1.sh "$GIT_AUTHOR"'
                                     
                                     message="The build worked, Yay!\nWell done ${GIT_AUTHOR}"
@@ -21,14 +21,16 @@ pipeline {
                     stage('test1') {
                             steps {
                                 catchError {
-                                    script {
-                                        echo "JOB NAME: ${env.JOB_NAME}"
-                                        if (env.message =~ "Yay"){
-                                            echo "The message contains the correct words"
-                                        } else {
-                                            message = "The message has unknown syntax??"
-                                            echo message
-                                            currentBuild.result = 'FAIL'
+                                    retry(2) {
+                                        script {
+                                            echo "JOB NAME: ${env.JOB_NAME}"
+                                            if (env.message =~ "Yay"){
+                                                echo "The message contains the correct words"
+                                            } else {
+                                                message = "The message has unknown syntax??"
+                                                echo message
+                                                currentBuild.result = 'FAIL'
+                                            }
                                         }
                                     }
                                 }
