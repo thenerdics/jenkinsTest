@@ -12,7 +12,7 @@ pipeline {
                                     ruby 'puts '
                                     sh 'git log | grep -v1 "$GIT_COMMIT" | grep -m1 -e "Author" | tr -d ":,<,>"'
                                     sh './test1.sh "$GIT_AUTHOR"'
-                                    
+                                    sh 'ruby --version'
                                     message="The build worked, Yay!\nWell done ${GIT_AUTHOR}"
                                 }
                             }
@@ -21,7 +21,7 @@ pipeline {
                     stage('test1') {
                             steps {
                                 catchError {
-                                    retry(2) {
+                                    retry (2) {
                                         script {
                                             echo "JOB NAME: ${env.JOB_NAME}"
                                             if (env.message =~ "Yay"){
@@ -29,7 +29,7 @@ pipeline {
                                             } else {
                                                 message = "The message has unknown syntax??"
                                                 echo message
-                                                currentBuild.result = 'FAIL' =foofail
+                                                currentBuild.result = 'FAIL'
                                             }
                                         }
                                     }
