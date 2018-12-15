@@ -9,7 +9,10 @@ pipeline {
                             catchError {
                                 script { 
                                     echo 'pipelineJobTryTest'
-                                    env.GIT_AUTHOR = $(git log | grep -v1 "$GIT_COMMIT" | grep -m1 -e "Author" | tr -d ":,<,>")
+                                    // sh 'GIT_AUTHOR=$(git log | grep -v1 "$GIT_COMMIT" | grep -m1 -e "Author" | tr -d ":,<,>")'
+                                    // sh 'export GIT_AUTHOR=$GIT_AUTHOR'
+                                    // sh './test1.sh $GIT_AUTHOR'
+                                    wait(50)
                                     message="The build worked, Yay!\nWell done ${env.GIT_AUTHOR}"
                                 }
                             }
@@ -21,7 +24,7 @@ pipeline {
                                     retry (2) {
                                         script {
                                             echo "JOB NAME: ${env.JOB_NAME}"
-                                            if (env.message =~ "Yay"){
+                                            if (message =~ "Yay"){
                                                 echo "The message contains the correct words"
                                             } else {
                                                 message = "The message has unknown syntax??"
