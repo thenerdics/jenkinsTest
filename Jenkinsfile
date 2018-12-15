@@ -10,7 +10,10 @@ pipeline {
                                 script { 
                                     echo 'pipelineJobTryTest'
                                     env.message = "The build worked, Yay!"
-                                    sh './test12.sh "Manvir"'
+                                    sh '''
+                                    GIT_AUTHOR=$(git log | grep -v1 "$GIT_COMMIT" | grep -m1 -e "Author" | tr -d ":,<,>")
+                                    ./test12.sh "$GIT_AUTHOR"
+                                    '''
                                 }
                             }
                         }
