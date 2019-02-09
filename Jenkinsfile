@@ -1,4 +1,4 @@
 node {
-   def thing = load 'job.groovy'
-   echo thing.doStuff()
+   def job = load 'job.groovy'
+   echo job.doStuff()
 }
