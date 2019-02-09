@@ -3,5 +3,5 @@
 
 node {
    def job = load 'job.groovy'
-   echo doStuff()
+   echo job.doStuff()
 }
