@@ -5,6 +5,6 @@ node {
    def greeting = { String x, int y ->                                
     println "hey ${x} the value is ${y}"
     }
-    greeting "manvir" 4
+    greeting "manvir" "4"
 }
 
