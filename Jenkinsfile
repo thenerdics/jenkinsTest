@@ -8,6 +8,6 @@ node {
    def greeting = { String x, int y ->                                
     println "hey ${x} the value is ${y}"
     }
-    greeting ${params.x}
+    greeting "${params.x}"
 }
 
