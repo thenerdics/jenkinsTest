@@ -2,6 +2,6 @@
 
 
 node {
-   def job = load 'job.groovy'
+   def job = load 'variables/vars/job.groovy'
    echo job.doStuff()
 }

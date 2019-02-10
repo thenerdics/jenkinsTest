@@ -29,3 +29,12 @@ class Student {
       println(st.getStudentName());
    } 
 }
+
+["groovy", 
+ "test.groovy", 
+ "-name", 
+ "Manvir", 
+ "-project", 
+ "testproj"].execute()
+
+ def cmd = ["docker".""].execute()
