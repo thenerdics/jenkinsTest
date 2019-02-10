@@ -3,6 +3,6 @@
 
 node {
    def job = println "Hello"
-   job()
+   job
 
 }
