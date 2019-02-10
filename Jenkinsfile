@@ -2,6 +2,7 @@
 
 
 node {
-   def job = load 'variables/vars/job.groovy'
-   echo job.doStuff()
+   def job = println "Hello"
+   job()
+
 }
