@@ -2,7 +2,9 @@
 
 
 node {
-   def job = println "Hello"
-   job
-
+   def greeting = { String x, int y ->                                
+    println "hey ${x} the value is ${y}"
+    }
 }
+
+greeting "manvir" 4
