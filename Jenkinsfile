@@ -17,37 +17,10 @@ pipeline {
     }
     stages {
 
-        stage('Example') {
-            steps {
-                echo "Hello ${params.PERSON}"
-
-                echo "Biography: ${params.BIOGRAPHY}"
-
-                echo "Toggle: ${params.TOGGLE}"
-
-                echo "Choice: ${params.CHOICE}"
-
-                echo "Password: ${params.PASSWORD}"
-            }
-        }
-
         stage('git status') {
-                steps {
-                    dir('test') {
-                        shell { 
-                            echo "Hello ${params.PERSON}" >> hello.txt
-
-                            echo "Biography: ${params.BIOGRAPHY}" >> hello.txt
-
-                            echo "Toggle: ${params.TOGGLE}" >> hello.txt
-
-                            echo "Choice: ${params.CHOICE}" >> hello.txt
-
-                            echo "Password: ${params.PASSWORD}" >> hello.txt
-                        }
-                }
+            steps {
+                sh 'git status'
             }
         }
-
     }
 }
