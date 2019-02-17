@@ -33,7 +33,7 @@ pipeline {
 
         stage('git status') {
             steps{
-                mk -p ./test
+                mkdir -p ./test
             }
             dir('test') { 
                 steps {
