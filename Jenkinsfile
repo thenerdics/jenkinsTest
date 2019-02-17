@@ -16,17 +16,18 @@ pipeline {
         file(name: "FILE", description: "Choose a file to upload")
     }
     stages {
-
+        stage('Checkout') {
+            git branch: "${GIT_BRANCH}", credentialsId: '82aa2d26-ef4b-4a6a-a05f-2e1090b9ce17', url: 'https://github.com/thenerdics/jenkinsTest.git'
+        }
         stage('git status') {
             steps {
                 sh 'printenv'
-                sh 'git clone https://github.com/thenerdics/jenkinsTest.git ||  git pull'
                 sh "echo $GIT_BRANCH"
                 dir('jenkinsTest'){
                 sh 'touch hello.txt'
                 sh 'echo "Hello" >> hello.txt'
                 sh '''
-                    git config user.email "manvirbrar1988@gmail.com"
+                    git config user.email "$GIT_AUTHOR_EMAIL"
                     git config user.name "thenerdics"
                     git config user.password "$PASSWORD"
                     '''
