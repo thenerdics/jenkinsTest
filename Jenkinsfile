@@ -26,12 +26,12 @@ pipeline {
                 sh 'echo "Hello" >> hello.txt'
                 sh '''
                     git config user.email "manvirbrar1988@gmail.com"
-                    git config user.name "thenerdics"
-                    git config user.password "$PASSWORD"
+                    git config user.name "${param.name}"
+                    git config user.password "${param.password}}"
                     '''
                     sh 'git add .'
                 sh 'git commit -am "test jenkins 2"'
-                sh 'git push jenkinsTest test12'
+                sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@<REPO>')
                 }
             }
         }
