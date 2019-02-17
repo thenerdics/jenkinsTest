@@ -26,6 +26,7 @@ pipeline {
                 sh 'touch hello.txt'
                 sh 'echo "Hello" >> hello.txt'
                 sh '''
+                    ls
                     git config user.email "manvirbrar1988@gmail.com"
                     git config user.name "thenerdics"
                     '''
