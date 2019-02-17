@@ -19,10 +19,14 @@ pipeline {
 
         stage('git status') {
             steps {
-                sh 'printenv'
+                sh "echo $GIT_BRANCH"
                 sh 'git status'
                 sh 'touch hello.txt'
                 sh 'echo "Hello" >> hello.txt'
+                sh '''
+                    git config user.email "manvirbrar1988@gmail.com"
+                    git config user.name "thenerdics"
+                    '''
                 sh 'git commit -am "test"'
                 sh 'git push origin gitUpdateTest'
             }
