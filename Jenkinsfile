@@ -16,10 +16,15 @@ pipeline {
         file(name: "FILE", description: "Choose a file to upload")
     }
     stages {
-        stage('Checkout') {
-            git branch: "${GIT_BRANCH}", credentialsId: '82aa2d26-ef4b-4a6a-a05f-2e1090b9ce17', url: 'https://github.com/thenerdics/jenkinsTest.git'
-        }
         stage('git status') {
+            scm {
+                git {
+                    remote {
+                        github('thenerdics/jenkinsTest', 'ssh')
+                        credentials('github-ci-key')
+                    }
+                }
+            }
             steps {
                 sh 'printenv'
                 sh "echo $GIT_BRANCH"
