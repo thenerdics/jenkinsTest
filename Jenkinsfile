@@ -20,8 +20,6 @@ pipeline {
         stage('git status') {
             steps {
                 sh 'git fetch'
-                sh 'git checkout origin master'
-                sh 'git checkout gitUpdateTest'
                 sh "echo $GIT_BRANCH"
                 sh 'touch hello.txt'
                 sh 'echo "Hello" >> hello.txt'
