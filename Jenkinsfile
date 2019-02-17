@@ -30,7 +30,7 @@ pipeline {
                     '''
                     sh 'git add .'
                 sh 'git commit -am "test jenkins 2"'
-                sh 'git push $GIT_BRANCH HEAD:origin'
+                sh 'git push orign HEAD:$GIT_BRANCH'
             }
         }
     }
