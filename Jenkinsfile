@@ -21,6 +21,7 @@ pipeline {
                 scm {
                 git {
                     remote {
+                        url('git@github.com:thenerdics/jenkinsTest.git')
                         github('thenerdics/jenkinsTest', 'ssh')
                         credentials('github-ci-key')
                     }
