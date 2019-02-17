@@ -32,9 +32,6 @@ pipeline {
         }
 
         stage('git status') {
-            steps{
-                mkdir -p ./test
-            }
             dir('test') { 
                 steps {
                     echo "Hello ${params.PERSON}" >> hello.txt
