@@ -31,7 +31,7 @@ pipeline {
                     '''
                     sh 'git add .'
                 sh 'git commit -am "test jenkins 2"'
-                sh 'git push orign test12'
+                sh 'git push jenkinsTest test12'
                 }
             }
         }
