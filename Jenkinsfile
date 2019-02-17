@@ -19,6 +19,7 @@ pipeline {
 
         stage('git status') {
             steps {
+                sh 'printenv'
                 sh 'git clone https://github.com/thenerdics/jenkinsTest.git ||  git pull'
                 sh 'git fetch'
                 sh "echo $GIT_BRANCH"
@@ -30,7 +31,7 @@ pipeline {
                     '''
                     sh 'git add .'
                 sh 'git commit -am "test jenkins 2"'
-                sh 'git push orign HEAD:$GIT_BRANCH'
+                sh 'git push jenkinsTest HEAD:$GIT_BRANCH'
             }
         }
     }
