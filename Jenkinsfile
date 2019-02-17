@@ -20,10 +20,6 @@ pipeline {
             steps {
                 scm {
                     git url ('git@github.com:thenerdics/jenkinsTest.git') 
-                    remote {
-                        github('thenerdics/jenkinsTest', 'ssh')
-                        credentials('github-ci-key')
-                    }
             }
                 sh 'printenv'
                 sh "echo $GIT_BRANCH"
