@@ -19,13 +19,12 @@ pipeline {
         stage('git status') {
             steps {
                 scm {
-                git {
+                    git url ('git@github.com:thenerdics/jenkinsTest.git') 
                     remote {
-                        url('git@github.com:thenerdics/jenkinsTest.git')
+                        url('')
                         github('thenerdics/jenkinsTest', 'ssh')
                         credentials('github-ci-key')
                     }
-                }
             }
                 sh 'printenv'
                 sh "echo $GIT_BRANCH"
