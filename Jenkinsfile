@@ -24,7 +24,7 @@ pipeline {
                 sh 'touch hello.txt'
                 sh 'echo "Hello" >> hello.txt'
                 sh '''
-                    git config user.email "$GIT_AUTHOR_EMAIL"
+                    git config user.email \"$GIT_AUTHOR_EMAIL\"
                     git config user.name "thenerdics"
                     git config user.password "$PASSWORD"
                     '''
