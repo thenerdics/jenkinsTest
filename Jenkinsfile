@@ -19,7 +19,7 @@ pipeline {
 
         stage('git status') {
             steps {
-                sh 'git clone https://github.com/thenerdics/jenkinsTest.git'
+                sh 'git clone https://github.com/thenerdics/jenkinsTest.git ||  git pull'
                 sh 'git fetch'
                 sh "echo $GIT_BRANCH"
                 sh 'touch hello.txt'
