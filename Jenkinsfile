@@ -21,7 +21,7 @@ pipeline {
             steps {
                 sh 'printenv'
                 sh 'git clone https://github.com/thenerdics/jenkinsTest.git ||  git pull'
-                sh 'git fetch'
+                sh 'git fetch && git branch
                 sh "echo $GIT_BRANCH"
                 dir('jenkinsTest'){
                 sh 'touch hello.txt'
