@@ -17,7 +17,8 @@ pipeline {
     }
     stages {
         stage('git status') {
-            scm {
+            steps {
+                scm {
                 git {
                     remote {
                         github('thenerdics/jenkinsTest', 'ssh')
@@ -25,7 +26,6 @@ pipeline {
                     }
                 }
             }
-            steps {
                 sh 'printenv'
                 sh "echo $GIT_BRANCH"
                 dir('jenkinsTest'){
