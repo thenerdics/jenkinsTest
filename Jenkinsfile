@@ -25,8 +25,8 @@ pipeline {
                 sh 'echo "Hello" >> hello.txt'
                 sh """
                     git config user.email manvirbrar1988@gmail.com
-                    git config user.name ${param.name}
-                    git config user.password ${param.password}}
+                    git config user.name ${params.name}
+                    git config user.password ${params.password}}
                     """
                     sh 'git add .'
                 sh 'git commit -am "test jenkins 2"'
