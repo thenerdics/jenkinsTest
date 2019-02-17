@@ -18,9 +18,7 @@ pipeline {
     stages {
         stage('git status') {
             steps {
-                scm {
-                    git url ('git@github.com:thenerdics/jenkinsTest.git') 
-            }
+                git url ('git@github.com:thenerdics/jenkinsTest.git') 
                 sh 'printenv'
                 sh "echo $GIT_BRANCH"
                 dir('jenkinsTest'){
