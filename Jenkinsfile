@@ -29,7 +29,7 @@ pipeline {
                     '''
                     sh 'git add .'
                 sh 'git commit -am "test jenkins"'
-                sh 'git push origin gitUpdateTest'
+                sh 'git push'
             }
         }
     }
