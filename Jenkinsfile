@@ -28,7 +28,7 @@ pipeline {
                     git config user.name "thenerdics"
                     '''
                     sh 'git add .'
-                sh 'git commit -am "test jenkins"'
+                sh 'git commit -am "test jenkins 2"'
                 sh 'git push'
             }
         }
