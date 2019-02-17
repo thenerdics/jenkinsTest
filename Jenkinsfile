@@ -23,11 +23,11 @@ pipeline {
                 dir('jenkinsTest'){
                 sh 'touch hello.txt'
                 sh 'echo "Hello" >> hello.txt'
-                sh '''
-                    git config user.email "manvirbrar1988@gmail.com"
-                    git config user.name "${param.name}"
-                    git config user.password "${param.password}}"
-                    '''
+                sh """
+                    git config user.email manvirbrar1988@gmail.com
+                    git config user.name ${param.name}
+                    git config user.password ${param.password}}
+                    """
                     sh 'git add .'
                 sh 'git commit -am "test jenkins 2"'
                 sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@<REPO>')
