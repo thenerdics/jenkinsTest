@@ -21,7 +21,7 @@ pipeline {
                 sh 'printenv'
                 sh "echo $GIT_BRANCH"
                 dir('jenkinsTest'){
-                    sh 'git remote'
+                    sh 'git checkout -b test'
                 sh 'touch hello.txt'
                 sh 'echo "Hello" >> hello.txt'
                 sh '''
