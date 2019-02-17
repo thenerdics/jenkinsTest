@@ -21,7 +21,7 @@ pipeline {
             steps {
                 sh 'printenv'
                 sh 'git clone https://github.com/thenerdics/jenkinsTest.git ||  git pull'
-                sh 'git fetch && git branch
+                sh 'git remote add origin https://github.com/thenerdics/jenkinsTest.git'
                 sh "echo $GIT_BRANCH"
                 dir('jenkinsTest'){
                 sh 'touch hello.txt'
