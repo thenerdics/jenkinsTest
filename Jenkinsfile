@@ -24,6 +24,7 @@ pipeline {
                 sh 'git fetch'
                 sh "echo $GIT_BRANCH"
                 sh 'touch hello.txt'
+                sh 'ls'
                 sh 'echo "Hello" >> hello.txt'
                 sh '''
                     ls
@@ -32,7 +33,7 @@ pipeline {
                     '''
                     sh 'git add .'
                 sh 'git commit -am "test jenkins 2"'
-                sh 'git push origin jenkinsTest:$GIT_BRANCH || sudo git push origin:$GIT_BRANCH HEAD:$GIT_BRANCH'
+                sh 'git push origin jenkinsTest:$GIT_BRANCH || git push origin:$GIT_BRANCH HEAD:$GIT_BRANCH'
             }
         }
     }
