@@ -35,17 +35,18 @@ pipeline {
             steps{
                 mk -p ./test
             }
-            dir('test')
-            steps {
-                echo "Hello ${params.PERSON}" >> hello.txt
+            dir('test') { 
+                steps {
+                    echo "Hello ${params.PERSON}" >> hello.txt
 
-                echo "Biography: ${params.BIOGRAPHY}" >> hello.txt
+                    echo "Biography: ${params.BIOGRAPHY}" >> hello.txt
 
-                echo "Toggle: ${params.TOGGLE}" >> hello.txt
+                    echo "Toggle: ${params.TOGGLE}" >> hello.txt
 
-                echo "Choice: ${params.CHOICE}" >> hello.txt
+                    echo "Choice: ${params.CHOICE}" >> hello.txt
 
-                echo "Password: ${params.PASSWORD}" >> hello.txt
+                    echo "Password: ${params.PASSWORD}" >> hello.txt
+                }
             }
         }
 
