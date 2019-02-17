@@ -27,6 +27,7 @@ pipeline {
                     git config user.email "manvirbrar1988@gmail.com"
                     git config user.name "thenerdics"
                     '''
+                    sh 'git add .'
                 sh 'git commit -am "test"'
                 sh 'git push origin gitUpdateTest'
             }
