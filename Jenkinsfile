@@ -19,7 +19,12 @@ pipeline {
 
         stage('git status') {
             steps {
+                sh 'printenv'
                 sh 'git status'
+                sh 'touch hello.txt'
+                sh 'echo "Hello" >> hello.txt'
+                sh 'git commit -am "test"'
+                sh 'git push origin gitUpdateTest'
             }
         }
     }
