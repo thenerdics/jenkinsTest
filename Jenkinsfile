@@ -25,6 +25,7 @@ agent any
         sh 'echo "hello world"'
         sh 'git add hello.txt'
         sh 'git commit -m "jenkinsPush"'
+        sh 'git push'
         }
      }
      stage('second'){
