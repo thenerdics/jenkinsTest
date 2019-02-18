@@ -8,8 +8,6 @@ void setBuildStatus(String message, String state) {
   ]);
 }
 
-... 
-
 pipeline {
   stages {
      stage('hello world') {
