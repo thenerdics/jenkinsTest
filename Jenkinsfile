@@ -13,6 +13,7 @@ pipeline {
   stages {
      stage('hello world') {
         steps {
+        sh 'rm -rf ./*'
         git(
             url: 'git@github.com:thenerdics/jenkinsTest.git',
             credentialsId: 'blah',
