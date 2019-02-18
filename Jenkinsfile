@@ -1,10 +1,11 @@
 #!/usr/bin/env groovy
 
+def gitUrl = 'git@github.com:thenerdics/jenkinsTest.git'
+
 pipeline {
 agent any
   stages {
      stage('hello world') {
-        def gitUrl = 'git@github.com:thenerdics/jenkinsTest.git'
         steps {
         // git([ url: 'https://github.com/thenerdics/jenkinsTest.git', credentialsId: 'thenerdics', branch: "gitUpdateTest" ])
         sh 'git clone \"${gitUrl}\" || rm -rf jenkinsTest && git clone \"${gitUrl}\"'
