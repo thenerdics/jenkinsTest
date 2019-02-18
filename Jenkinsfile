@@ -16,7 +16,7 @@ agent any
         sh 'rm -rf ./*'
         git(
             url: 'https://github.com/thenerdics/jenkinsTest.git',
-            credentialsId: 'blah',
+            credentialsId: 'thenerdics',
             branch: "gitUpdateTest"
         )
         sh 'git branch'
