@@ -15,7 +15,7 @@ agent any
         steps {
         checkout scm
         // git([ url: 'https://github.com/thenerdics/jenkinsTest.git', credentialsId: 'thenerdics', branch: "gitUpdateTest" ])
-        sh 'git branch'
+        sh 'git branch -D gitUpdateTests'
         sh 'git checkout -b gitUpdateTests'
         sh 'rm -rf ./*'
         sh 'touch hello213.txt'
