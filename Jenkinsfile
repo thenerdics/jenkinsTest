@@ -9,7 +9,7 @@ void setBuildStatus(String message, String state) {
 }
 
 pipeline {
-    agent any
+agent any
   stages {
      stage('hello world') {
         steps {
@@ -20,6 +20,7 @@ pipeline {
             branch: "gitUpdateTest"
         )
         sh 'git branch'
+        sh 'git checkout gitUpdateTest'
         }
      }
 
