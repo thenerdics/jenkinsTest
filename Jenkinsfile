@@ -15,7 +15,7 @@ agent any
         steps {
         sh 'rm -rf ./*'
         git(
-            url: 'git@github.com:thenerdics/jenkinsTest.git',
+            url: 'https://github.com/thenerdics/jenkinsTest.git',
             credentialsId: 'blah',
             branch: "gitUpdateTest"
         )
