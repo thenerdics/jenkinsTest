@@ -30,9 +30,8 @@ agent any
   }
   post {
     success {
-        steps {
-            sh 'git push'
-        }
+        sh 'git push'
+
     }
     failure {
         echo "Fail"
