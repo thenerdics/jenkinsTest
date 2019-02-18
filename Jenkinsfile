@@ -12,12 +12,12 @@ pipeline {
     agent any
   stages {
      stage('hello world') {
-         git(
-       url: 'git@github.com:thenerdics/jenkinsTest.git',
-       credentialsId: 'thenerdics',
-       branch: "gitUpdateTest"
-    )
         steps {
+        git(
+            url: 'git@github.com:thenerdics/jenkinsTest.git',
+            credentialsId: 'thenerdics',
+            branch: "gitUpdateTest"
+        )
         sh 'git branch'
         }
      }
