@@ -15,6 +15,7 @@ pipeline {
         steps {
         sh 'echo "Hello" > helloworld.txt'
         sh 'git branch'
+        sh 'git checkout gitUpdateTest'
         }
      }
   }
