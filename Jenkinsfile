@@ -27,7 +27,9 @@ agent any
         sh 'git commit -m "jenkinsPush"'
         }
      }
-     stage('')
+     stage('second'){
+        sh 'cat hello.txt'
+     }
 
   }
   post {
