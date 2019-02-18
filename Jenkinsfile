@@ -13,7 +13,7 @@ pipeline {
   stages {
      stage('hello world') {
         steps {
-        echo "Hello" > helloworld.txt
+        sh 'echo "Hello" > helloworld.txt'
         }
      }
   }
