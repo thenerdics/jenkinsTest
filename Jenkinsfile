@@ -19,7 +19,7 @@ agent any
         sh 'git branch'
         sh 'git checkout gitUpdateTest'
         sh 'touch hello.txt'
-        sh 'echo "hello world"'
+        sh 'echo "hello world2"'
         sh 'git add hello.txt'
         sh 'git commit -m "jenkinsPush"'
         sh 'git push origin jenkinsTest:gitUpdateTest'
