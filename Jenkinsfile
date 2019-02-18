@@ -19,7 +19,6 @@ agent any
         sh 'echo "hello world2"'
         sh 'git add hello213.txt'
         sh 'git commit -m "jenkinsPush"'
-        sh 'git push origin gitUpdateTest'
         }
      }
      stage('second'){
