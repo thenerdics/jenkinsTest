@@ -15,7 +15,7 @@ pipeline {
         steps {
         git(
             url: 'git@github.com:thenerdics/jenkinsTest.git',
-            credentialsId: 'thenerdics',
+            credentialsId: 'blah',
             branch: "gitUpdateTest"
         )
         sh 'git branch'
