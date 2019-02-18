@@ -14,6 +14,7 @@ pipeline {
      stage('hello world') {
         steps {
         sh 'echo "Hello" > helloworld.txt'
+        sh 'git branch'
         }
      }
   }
