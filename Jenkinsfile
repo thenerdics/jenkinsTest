@@ -12,13 +12,15 @@ pipeline {
     agent any
   stages {
      stage('hello world') {
+         git(
+       url: 'git@github.com:thenerdics/jenkinsTest.git',
+       credentialsId: 'thenerdics',
+       branch: "gitUpdateTest"
+    )
         steps {
         sh 'git branch'
         }
      }
-     stage('notify slack') {
-        slackSend channel: '#slack-team', color: '#2ECC71', message: "Push (release type:  to Artifactory - Complete - <|See the build>"
-    }
 
   }
   post {
