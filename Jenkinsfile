@@ -28,7 +28,9 @@ agent any
         }
      }
      stage('second'){
-        sh 'cat hello.txt'
+        steps{
+            sh 'cat hello.txt'
+        }
      }
 
   }
