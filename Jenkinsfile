@@ -13,9 +13,12 @@ pipeline {
   stages {
      stage('hello world') {
         steps {
-        sh 'echo "Hello" > helloworld.txt'
         sh 'git branch'
         sh 'git checkout gitUpdateTest'
+        sh 'echo "Hello" > helloworld.txt'
+        sh 'git add helloworld.text'
+        sh 'git commit -m "test"'
+        sh 'git push'
         }
      }
   }
