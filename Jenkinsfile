@@ -10,7 +10,7 @@ agent any
         steps {
         
         git branch: 'gitUpdateTest',
-        credentialsId: 'blah',
+        credentialsId: 'thenerdics',
         url: "${gitUrl}"
         
         sh 'git branch -D gitUpdateTests'
