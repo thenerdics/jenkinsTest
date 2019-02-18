@@ -14,7 +14,8 @@ agent any
      stage('hello world') {
         steps {
         sh 'rm -rf ./*'
-        git([ url: 'https://github.com/thenerdics/jenkinsTest.git', credentialsId: 'thenerdics', branch: "gitUpdateTest" ])
+        checkout scm
+        // git([ url: 'https://github.com/thenerdics/jenkinsTest.git', credentialsId: 'thenerdics', branch: "gitUpdateTest" ])
         sh 'git branch'
         sh 'git checkout gitUpdateTest'
         sh 'touch hello.txt'
