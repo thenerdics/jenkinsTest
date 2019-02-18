@@ -14,13 +14,12 @@ pipeline {
      stage('hello world') {
         steps {
         sh 'git branch'
-        sh 'git checkout gitUpdateTest'
-        sh 'echo "Hello" > helloworld.txt'
-        sh 'git add helloworld.txt'
-        sh 'git commit -m "test"'
-        sh 'git push'
         }
      }
+     stage('notify slack') {
+	slackSend channel: #slack-team, color: '#2ECC71', message: "Push ${JOB_NAME} (release type: ${env.RELEASE_TYPE}) to Artifactory - Complete - <${BUILD_URL}|See the build>"
+}
+
   }
   post {
     success {
