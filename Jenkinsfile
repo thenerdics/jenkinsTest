@@ -23,7 +23,7 @@ agent any
         sh 'git checkout gitUpdateTest'
         sh 'touch hello.txt'
         sh 'echo "hello world"'
-        sh 'git add --all'
+        sh 'git add hello.txt'
         sh 'git commit -m "jenkinsPush"'
         }
      }
