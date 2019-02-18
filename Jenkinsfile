@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-def gitUrl = 'git@github.com:thenerdics/jenkinsTest.git'
+def gitUrl = 'https://github.com/thenerdics/jenkinsTest.git'
 
 pipeline {
 agent any
