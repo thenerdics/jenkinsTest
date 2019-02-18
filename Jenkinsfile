@@ -16,7 +16,7 @@ pipeline {
         sh 'git branch'
         sh 'git checkout gitUpdateTest'
         sh 'echo "Hello" > helloworld.txt'
-        sh 'git add helloworld.text'
+        sh 'git add helloworld.txt'
         sh 'git commit -m "test"'
         sh 'git push'
         }
