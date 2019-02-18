@@ -10,11 +10,10 @@ void setBuildStatus(String message, String state) {
 
 pipeline {
 agent any
-
-    def gitUrl = 'git@github.com:thenerdics/jenkinsTest.git'
   stages {
      stage('hello world') {
         steps {
+        def gitUrl = 'git@github.com:thenerdics/jenkinsTest.git'
         // git([ url: 'https://github.com/thenerdics/jenkinsTest.git', credentialsId: 'thenerdics', branch: "gitUpdateTest" ])
         sh 'git clone \"${gitUrl}\" || rm -rf jenkinsTest && git clone \"${gitUrl}\"'
         sh 'git branch -D gitUpdateTests'
