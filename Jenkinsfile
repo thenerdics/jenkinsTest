@@ -6,11 +6,12 @@ pipeline {
 agent any
   stages {
      stage('hello world') {
-         git branch: 'gitUpdateTest',
-    credentialsId: 'blah',
-    url: "${gitUrl}"
+        
         steps {
-            checkout scm
+        
+        git branch: 'gitUpdateTest',
+        credentialsId: 'blah',
+        url: "${gitUrl}"
         
         sh 'git branch -D gitUpdateTests'
         sh 'git checkout -b gitUpdateTests'
