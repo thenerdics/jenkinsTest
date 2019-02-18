@@ -7,7 +7,7 @@ agent any
   stages {
      stage('hello world') {
         steps {
-        git([ url: 'git@github.com:thenerdics/jenkinsTest.git', credentialsId: 'thenerdics', branch: "gitUpdateTest" ])
+        git([ url: 'git@github.com:thenerdics/jenkinsTest.git', credentialsId: 'blah', branch: "gitUpdateTest" ])
         sh 'git branch -D gitUpdateTests'
         sh 'git checkout -b gitUpdateTests'
         sh 'rm -rf ./*'
