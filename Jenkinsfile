@@ -18,9 +18,9 @@ agent any
         // git([ url: 'https://github.com/thenerdics/jenkinsTest.git', credentialsId: 'thenerdics', branch: "gitUpdateTest" ])
         sh 'git branch'
         sh 'git checkout gitUpdateTest'
-        sh 'touch hello23.txt'
+        sh 'touch hello213.txt'
         sh 'echo "hello world2"'
-        sh 'git add hello23.txt'
+        sh 'git add hello213.txt'
         sh 'git commit -m "jenkinsPush"'
         sh 'git push --set-upstream origin gitUpdateTest'
         }
