@@ -22,7 +22,7 @@ agent any
         sh 'echo "hello world2"'
         sh 'git add hello213.txt'
         sh 'git commit -m "jenkinsPush"'
-        sh 'git push --set-upstream origin gitUpdateTest'
+        sh 'git push --set-upstream origin gitUpdateTests'
         }
      }
      stage('second'){
