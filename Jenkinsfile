@@ -13,11 +13,11 @@ agent any
   stages {
      stage('hello world') {
         steps {
-        sh 'rm -rf ./*'
         checkout scm
         // git([ url: 'https://github.com/thenerdics/jenkinsTest.git', credentialsId: 'thenerdics', branch: "gitUpdateTest" ])
         sh 'git branch'
         sh 'git checkout -b gitUpdateTests'
+        sh 'rm -rf ./*'
         sh 'touch hello213.txt'
         sh 'echo "hello world2"'
         sh 'git add hello213.txt'
