@@ -3,12 +3,12 @@
 def gitUrl = 'git@github.com:thenerdics/jenkinsTest.git'
 
 pipeline {
-    git branch: 'gitUpdateTest',
-    credentialsId: 'blah',
-    url: "${gitUrl}"
 agent any
   stages {
      stage('hello world') {
+         git branch: 'gitUpdateTest',
+    credentialsId: 'blah',
+    url: "${gitUrl}"
         steps {
             checkout scm
         
