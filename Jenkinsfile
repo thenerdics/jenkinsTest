@@ -32,6 +32,9 @@ agent any
   post {
     success {
         setBuildStatus("Build succeeded", "SUCCESS");
+        steps {
+            sh 'git push'
+        }
     }
     failure {
         setBuildStatus("Build failed", "FAILURE");
