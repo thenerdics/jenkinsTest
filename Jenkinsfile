@@ -21,8 +21,13 @@ agent any
         )
         sh 'git branch'
         sh 'git checkout gitUpdateTest'
+        sh 'touch hello.txt'
+        sh 'echo "hello world"'
+        sh 'git add --all'
+        sh 'git commit -m "jenkinsPush"'
         }
      }
+     stage('')
 
   }
   post {
