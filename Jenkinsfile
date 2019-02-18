@@ -17,8 +17,8 @@ pipeline {
         }
      }
      stage('notify slack') {
-	slackSend channel: #slack-team, color: '#2ECC71', message: "Push (release type:  to Artifactory - Complete - <|See the build>"
-}
+        slackSend channel: '#slack-team', color: '#2ECC71', message: "Push (release type:  to Artifactory - Complete - <|See the build>"
+    }
 
   }
   post {
