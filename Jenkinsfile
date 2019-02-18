@@ -14,18 +14,14 @@ agent any
      stage('hello world') {
         steps {
         sh 'rm -rf ./*'
-        git(
-            url: 'https://github.com/thenerdics/jenkinsTest.git',
-            credentialsId: 'thenerdics',
-            branch: "gitUpdateTest"
-        )
+        git([ url: 'https://github.com/thenerdics/jenkinsTest.git', credentialsId: 'thenerdics', branch: "gitUpdateTest" ])
         sh 'git branch'
         sh 'git checkout gitUpdateTest'
         sh 'touch hello.txt'
         sh 'echo "hello world"'
         sh 'git add hello.txt'
         sh 'git commit -m "jenkinsPush"'
-        sh 'git push origin gitUpdateTest'
+        sh 'git push origin jenkinsTest:gitUpdateTest'
         }
      }
      stage('second'){
