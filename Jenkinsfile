@@ -3,12 +3,15 @@
 def gitUrl = 'git@github.com:thenerdics/jenkinsTest.git'
 
 pipeline {
+    git branch: 'gitUpdateTest',
+    credentialsId: 'blah',
+    url: "${gitUrl}"
 agent any
   stages {
      stage('hello world') {
         steps {
             checkout scm
-        git([ url: 'git@github.com:thenerdics/jenkinsTest.git', credentialsId: 'blah', branch: "gitUpdateTest" ])
+        
         sh 'git branch -D gitUpdateTests'
         sh 'git checkout -b gitUpdateTests'
         sh 'rm -rf ./*'
