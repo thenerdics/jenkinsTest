@@ -7,8 +7,7 @@ agent any
   stages {
      stage('hello world') {
         steps {
-            checkout scm
-        // git([ url: 'https://github.com/thenerdics/jenkinsTest.git', credentialsId: 'thenerdics', branch: "gitUpdateTest" ])
+        git([ url: 'https://github.com/thenerdics/jenkinsTest.git', credentialsId: 'thenerdics', branch: "gitUpdateTest" ])
         sh "git clone ${gitUrl} || rm -rf jenkinsTest && git clone ${gitUrl}"
         sh 'git branch -D gitUpdateTests'
         sh 'git checkout -b gitUpdateTests'
