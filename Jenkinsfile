@@ -18,11 +18,11 @@ agent any
         // git([ url: 'https://github.com/thenerdics/jenkinsTest.git', credentialsId: 'thenerdics', branch: "gitUpdateTest" ])
         sh 'git branch'
         sh 'git checkout gitUpdateTest'
-        sh 'touch hello2.txt'
+        sh 'touch hello23.txt'
         sh 'echo "hello world2"'
-        sh 'git add hello2.txt'
+        sh 'git add hello23.txt'
         sh 'git commit -m "jenkinsPush"'
-        sh 'git push origin jenkinsTest:gitUpdateTest'
+        sh 'git push '
         }
      }
      stage('second'){
