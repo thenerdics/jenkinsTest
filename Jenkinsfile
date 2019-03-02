@@ -6,7 +6,7 @@ node {
         checkout scm
         sh( script: 'ls', returnStdout: true )
         sh '''
-        cat pom.xml | grep -i "groupid" -A3 | grep -i "version"
+        cat pom.xml | grep -i "my-app" -A1 | grep -i "version"
         '''
     }
 }
