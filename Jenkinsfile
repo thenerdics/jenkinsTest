@@ -1,11 +1,5 @@
 node {
-    stage('hello world'){
-        dir('Maven'){
-        echo "Hello World"
-            sh """
-                mvn -version
-                
-            """
-        }
+    stage('Hello world test'){
+        echo "This is a test"
     }
 }
