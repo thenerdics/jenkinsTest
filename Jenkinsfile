@@ -1,5 +1,4 @@
 node {
-    def 
     stage('Hello world test'){
         echo "Hello World"
     }
