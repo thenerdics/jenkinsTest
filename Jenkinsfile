@@ -1,6 +1,6 @@
 node {
     stage('hello world'){
-        dir('jenkins-mani'){
+        dir('Maven'){
         echo "Hello World"
             sh """
                 mvn -version
