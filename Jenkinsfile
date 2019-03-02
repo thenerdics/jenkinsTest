@@ -5,5 +5,6 @@ node {
     stage('Maven test'){
         checkout scm
         sh( script: 'ls', returnStdout: true )
+        sh 'cat pom.xml'
     }
 }
