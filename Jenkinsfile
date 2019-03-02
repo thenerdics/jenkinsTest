@@ -1,6 +1,7 @@
 node {
+    name = 'Anaya'
     stage('Hello world test'){
-        echo "This is a test"
+        echo "Hello ${name}"
     }
     stage('Maven test'){
         checkout scm
