@@ -1,7 +1,7 @@
 node {
     def 
     stage('Hello world test'){
-        echo "Hello ${name}"
+        echo "Hello World"
     }
     stage('Maven test'){
         checkout scm
