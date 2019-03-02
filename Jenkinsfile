@@ -1,12 +1,11 @@
 node {
     stage('Hello world test'){
         echo "Hello World"
-        sh 'ls'
+        sh 'printenv'
     }
     stage('Maven test'){
         checkout scm
-        sh( script: 'ls', returnStdout: true )
+        sh( script: 'printenv', returnStdout: true )
         sh( script: 'mvn -version', returnStdout: true )
-
     }
 }
