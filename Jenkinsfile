@@ -4,11 +4,6 @@ node {
     }
     stage('Maven test'){
         checkout scm
-        shell( script: 'ls', returnStdout: true )
-    }
-    post{
-        always{
-            echo "This is a post step"
-        }
+        shell( script: 'pwd', returnStdout: true )
     }
 }
