@@ -4,6 +4,6 @@ node {
     }
     stage('Maven test'){
         checkout scm
-        sh( script: 'pwd', returnStdout: true )
+        sh( script: 'ls', returnStdout: true )
     }
 }
