@@ -6,4 +6,9 @@ node {
         checkout scm
         shell( script: 'ls', returnStdout: true )
     }
+    post{
+        always{
+            echo "This is a post step"
+        }
+    }
 }
