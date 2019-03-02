@@ -1,6 +1,7 @@
 node {
     stage('Hello world test'){
         echo "Hello World"
+        sh 'ls'
     }
     stage('Maven test'){
         checkout scm
