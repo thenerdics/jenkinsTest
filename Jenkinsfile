@@ -1,7 +1,7 @@
 node {
     stage('Install Maven'){
         echo "Hello World"
-        sh 'sudo apt-get install maven'
+        sh 'apt-get install maven'
     }
     stage('Maven test'){
         dir('usr/local')
