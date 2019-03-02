@@ -2,6 +2,7 @@ node {
     stage('Hello world test'){
         echo "Hello World"
         sh 'java -version'
+        sh 'mvn -version'
     }
     stage('Maven test'){
         dir('usr/local')
