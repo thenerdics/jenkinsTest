@@ -5,6 +5,8 @@ node {
     stage('Maven test'){
         checkout scm
         sh( script: 'ls', returnStdout: true )
-        sh 'cat pom.xml'
+        sh '''
+        cat pom.xml | grep -i "groupid" -A3 | grep -i "version"
+        '''
     }
 }
