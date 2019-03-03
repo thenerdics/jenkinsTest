@@ -12,7 +12,7 @@ pipeline {
                     mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.majorVersion}.\\${parsedVersion.nextMinorVersion}.\\${parsedVersion.nextIncrementalVersion} versions:commit
                 ''' 
                 script {
-                    version = sh "mvn build-helper:parse-version | grep Building | cut -d ' ' -f4"
+                def version = sh "mvn build-helper:parse-version | grep Building | cut -d ' ' -f4"
                 println "Updated to version: ${version}"
                 }
                 
