@@ -11,7 +11,7 @@ pipeline {
                 
                 script {
                     def version = sh (script: "mvn build-helper:parse-version | grep Building | cut -d ' ' -f4", returnStdout: true)
-                    def updateVersion = load('vars/updateVersion.groovy')
+                    def updateVersion = load('variables/vars/updateVersion.groovy')
                     if (version){
                         println "Updated to version: ${version}"
                         sh """
