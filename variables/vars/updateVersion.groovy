@@ -1,11 +1,19 @@
 #!/usr/bin/env groovy
 
-def mavenIncrement(){
+def mavenIncrement(choice){
     echo "================ Incrementing maven pom file ================"
     sh '''
-        git checkout mavenTest
-        mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.majorVersion}.\\${parsedVersion.nextMinorVersion}.\\${parsedVersion.nextIncrementalVersion} versions:commit
+        mvnIncrement(){
+            mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.$1}.\\${parsedVersion.$2}.\\${parsedVersion.$3} versions:commit
+        }
     ''' 
+    if (choice == 'major'){
+        sh 'mvnIncrement("nextMajorVersion","0","0")'
+    }else if (choice == 'minor'){
+        sh 'mvnIncrement("majorVersion","nextMinorVersion","0")'
+    }else if (choice == 'patch'){
+        sh 'mvnIncrement("majorVersion","nextMinorVersion","nextIncrementVersion")'
+    }
 }
 
 def npmIncrement(choice){
