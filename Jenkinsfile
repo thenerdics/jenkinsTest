@@ -20,7 +20,7 @@ pipeline {
 
                     echo "Increment choice is: ${choice}" 
                     updateversion.mavenIncrement(choice)
-                    def mvnVersion = sh (script: "mvn build-helper:parse-version | grep Building | cut -d ' ' -f4", returnStdout: true)
+                    def mvnVersion = sh (script: "mvn build-helper:parse-version | grep Building | cut -d ' ' -f4 | tr -d ' '", returnStdout: true)
                     if (mvnVersion){
                         println "Maven package updated to version: ${mvnVersion}"
                         sh """
@@ -46,7 +46,7 @@ pipeline {
                     }catch(e){
                         println "Something went wrong:\n${e}"
                     }
-                    String npmVersion = sh ( script: "cat ./package.json | grep -i version | cut -d ':' -f2 | tr -d '\"'", returnStdout: true )
+                    String npmVersion = sh ( script: "cat ./package.json | grep -i version | cut -d ':' -f2 | tr -d '\"' | tr -d ' '", returnStdout: true )
                     if (npmVersion){
                         echo "Npm package updated to version:${npmVersion}"
                     }
