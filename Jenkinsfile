@@ -40,7 +40,7 @@ pipeline {
                     def updateversion = load("variables/vars/updateVersion.groovy")
                     def choice = "${params.increment}"
                     updateversion.npmIncrement(choice)
-                    def npmVersion = sh ( script: "cat package.json| jq -r '.version'", returnStdout: true )
+                    def npmVersion = sh ( script: "cat package.json | jq -r '.version' || echo 'something broke'", returnStdout: true )
                     if (npmVersion){
                         echo "Npm package updated to version:${npmVersion}"
                     }
