@@ -10,7 +10,7 @@ pipeline {
                 checkout scm
                 
                 script {
-                    def updateversion = load("${pwd}/variables/vars/updateVersion.groovy")
+                    def updateversion = load("variables/vars/updateVersion.groovy")
                     updateversion.increment()
                     def version = sh (script: "mvn build-helper:parse-version | grep Building | cut -d ' ' -f4", returnStdout: true)
                     if (version){
