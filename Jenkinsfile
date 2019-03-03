@@ -2,7 +2,7 @@ node {
     stage('Install Maven'){
         echo "Hello World"
         sh '''
-        mvn -version
+        echo "hello"
         '''
     }
     stage('Maven test'){
