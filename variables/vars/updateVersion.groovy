@@ -15,8 +15,8 @@ def mavenIncrement(choice){
             mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.majorVersion}.\\${parsedVersion.minorVersion}.\\${parsedVersion.nextIncrementalVersion} versions:commit
         '''
     } else if (choice == 'hotfix'){
-        sh "export message=${choice}"
         sh '''
+        export message=\${choice}
         echo "$message"
             mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.majorVersion}.\\${parsedVersion.minorVersion}.\\${parsedVersion.incrementalVersion}."$message" versions:commit
         '''
