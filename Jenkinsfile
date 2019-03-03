@@ -30,6 +30,7 @@ pipeline {
                         """
                     }
                 }
+                deleteDir()
             }
         }
         stage ('Node increment') {
