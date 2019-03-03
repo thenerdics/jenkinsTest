@@ -34,6 +34,7 @@ pipeline {
             steps {
                 script {
                     checkout scm
+                    def updateversion = load("variables/vars/updateVersion.groovy")
                     updateversion.npmIncrement(choice)
                 }
             }
