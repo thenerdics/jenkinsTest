@@ -7,7 +7,6 @@ node {
     parameters{
         choice( name:'increment' ,description:"What increment?" , choices: versionChoices)
     }
-    stages {
         stage ('Maven increment') {
             steps {
                 script {
@@ -50,5 +49,4 @@ node {
                 deleteDir()
             }
         }
-    }
 }
