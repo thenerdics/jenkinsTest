@@ -5,6 +5,7 @@ pipeline {
     }
     tools { 
         maven 'jenkins-mani' 
+        nodejs 'nodejs-mani'
         
     }
     stages {
