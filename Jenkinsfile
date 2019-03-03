@@ -21,7 +21,7 @@ pipeline {
                         git config --global user.name "Your Name"
                         git add .
                         git commit -am "Updated to version: ${version}"
-                        git push 
+                        git push origin jenkinsTest:mavenTest
                         """
                     }
                 }
