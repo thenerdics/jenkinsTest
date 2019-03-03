@@ -20,9 +20,10 @@ pipeline {
                     sh 'git stash && git pull'
                     def updateversion = load("variables/vars/updateVersion.groovy")
                     def choice = "${params.increment}"
+                    def hotfix = "${params.hotfix}"
 
                     echo "Increment choice is: ${choice}" 
-                    updateversion.mavenIncrement(choice)
+                    updateversion.mavenIncrement(choice, hotfix)
                     def mvnVersion = sh (script: "mvn build-helper:parse-version | grep Building | cut -d ' ' -f4 | tr -d ' '", returnStdout: true)
                     if (mvnVersion){
                         println "Maven package updated to version: ${mvnVersion}"
