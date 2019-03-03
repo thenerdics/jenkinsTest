@@ -17,8 +17,8 @@ pipeline {
                     if (version){
                         println "Updated to version: ${version}"
                         sh """
-                        git config --global user.email "you@example.com"
-                        git config --global user.name "Your Name"
+                        git config --global user.email "manvirbrar1988@gmail.com"
+                        git config --global user.name "thenerdics"
                         git add .
                         git commit -am "Updated to version: ${version}"
                         git push origin HEAD:mavenTest
