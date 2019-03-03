@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    parameters{
+        string(defaultValue:"increment",description:"What increment?", name:'increment')
+    }
     tools { 
         maven 'jenkins-mani' 
         
@@ -10,6 +13,7 @@ pipeline {
                 checkout scm
                 
                 script {
+                    println "${increment}"
                     def updateversion = load("variables/vars/updateVersion.groovy")
                     updateversion.increment()
                     def version = sh (script: "mvn build-helper:parse-version | grep Building | cut -d ' ' -f4", returnStdout: true)
