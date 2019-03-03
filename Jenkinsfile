@@ -5,7 +5,7 @@ def versionChoices = ['major','minor','patch']
 pipeline {
     agent any
     parameters{
-        choice(defaultValue:"increment",description:"What increment?", name:'increment', choices: versionChoices)
+        choice(defaultValue:"patch",description:"What increment?", name:'increment', choices: versionChoices)
     }
     tools { 
         maven 'jenkins-mani' 
