@@ -6,6 +6,7 @@ pipeline {
     }
     stages {
         stage ('Initialize') {
+            checkout scm
             steps {
                 sh '''
                     echo "PATH = ${PATH}"
