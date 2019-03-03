@@ -6,13 +6,17 @@ def mavenIncrement(choice){
         sh '''
             mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.nextMajorVersion}.0.0 versions:commit
         '''
-    }else if (choice == 'minor'){
+    } else if (choice == 'minor'){
         sh '''
             mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.majorVersion}.\\${parsedVersion.nextMinorVersion}.0 versions:commit
         '''
-    }else if (choice == 'patch'){
+    } else if (choice == 'patch'){
         sh '''
             mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.majorVersion}.\\${parsedVersion.minorVersion}.\\${parsedVersion.nextIncrementalVersion} versions:commit
+        '''
+    } else if (choice == 'hotfix'){
+        sh '''
+            mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.majorVersion}.\\${parsedVersion.minorVersion}.\\${parsedVersion.incrementalVersion}.\"\${choice}\" versions:commit
         '''
     }
 }
@@ -25,6 +29,8 @@ def npmIncrement(choice){
             sh 'npm version minor'
         }else if (choice == 'patch'){
             sh 'npm version patch'
+        }else if (choice == "hotfix"){
+            sh 'npm version prepatch'
         }
 }
 
