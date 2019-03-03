@@ -27,7 +27,7 @@ pipeline {
                             git config --global user.email "manvirbrar1988@gmail.com"
                             git config --global user.name "thenerdics"
                             git add .
-                            git commit -am "Mvn pdated to version: ${mvnVersion}"
+                            git commit -am "Mvn updated to version: ${mvnVersion}"
                         """
                     }
                 }
