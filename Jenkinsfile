@@ -1,7 +1,5 @@
 pipeline {
     agent any
-    checkout scm
-    def updateversion = load("variables/vars/updateVersion.groovy")
     parameters{
         string(defaultValue:"increment",description:"What increment?", name:'increment')
     }
@@ -10,10 +8,13 @@ pipeline {
         
     }
     stages {
-        def choice = "${params.increment}"
         stage ('Maven increment') {
             steps {
                 script {
+                    checkout scm
+                    def updateversion = load("variables/vars/updateVersion.groovy")
+                    def choice = "${params.increment}"
+                    
                     println "${choice}"
                     updateversion.mavenIncrement()
                     def mvnVersion = sh (script: "mvn build-helper:parse-version | grep Building | cut -d ' ' -f4", returnStdout: true)
