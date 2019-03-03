@@ -1,0 +1,8 @@
+#!/usr/bin/env groovy
+
+def increment(){
+    sh '''
+        git checkout mavenTest
+        mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.majorVersion}.\\${parsedVersion.nextMinorVersion}.\\${parsedVersion.nextIncrementalVersion} versions:commit
+    ''' 
+}
