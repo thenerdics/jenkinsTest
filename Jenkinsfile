@@ -14,7 +14,7 @@ pipeline {
                     checkout scm
                     def updateversion = load("variables/vars/updateVersion.groovy")
                     def choice = "${params.increment}"
-                    
+
                     println "${choice}"
                     updateversion.mavenIncrement()
                     def mvnVersion = sh (script: "mvn build-helper:parse-version | grep Building | cut -d ' ' -f4", returnStdout: true)
@@ -34,8 +34,10 @@ pipeline {
 
         stage ('Node increment') {
             steps {
-                checkout scm
-                updateversion.npmIncrement(choice)
+                script {
+                    checkout scm
+                    updateversion.npmIncrement(choice)
+                }
             }
         }
     }
