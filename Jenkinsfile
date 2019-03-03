@@ -22,7 +22,7 @@ pipeline {
                         git config --global user.name "thenerdics"
                         git add .
                         git commit -am "Updated to version: ${version}"
-                        git push origin HEAD:mavenTest
+                        git push 
                         """
                     }
                 }
