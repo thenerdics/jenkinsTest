@@ -3,6 +3,9 @@ pipeline {
     agent any
     parameters{
         choice(description:"What increment?", name:'increment', choices: ['major','minor','patch','hotfix'])
+        if (choice == 'hotifx'){
+            string(description:"What's the hotfix name?", name:'hotfix', defaultValue:'')
+        }
     }
     tools { 
         maven 'jenkins-mani' 
