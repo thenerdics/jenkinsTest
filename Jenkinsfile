@@ -9,7 +9,7 @@ pipeline {
             steps {
                 checkout scm
                 sh '''
-                cat pom.xml
+                    mvn build-helper:parse-version versions:set -DnewVersion=\${parsedVersion.majorVersion}.\${parsedVersion.nextMinorVersion}.\${parsedVersion.nextIncrementalVersion} versions:commit
                     echo "PATH = ${PATH}"
                     echo "M2_HOME = ${M2_HOME}"
                     mvn -version
