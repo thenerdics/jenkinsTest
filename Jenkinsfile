@@ -14,7 +14,7 @@ pipeline {
                     echo "M2_HOME = ${M2_HOME}"
                     mvn -version
                 ''' 
-                sh 'mvn build-helper:parse-version'
+                sh 'version=\${ mvn build-helper:parse-version | grep Building | cut -d " " -f4 }'
             }
         }
 
