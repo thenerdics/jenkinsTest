@@ -18,7 +18,9 @@ pipeline {
                     def updateversion = load("variables/vars/updateVersion.groovy")
                     def choice = "${params.increment}"
 
-                    echo "Increment choice is: ${choice}"
+                    sh""" 
+                        echo "Increment choice is: ${choice}" 
+                    """
                     updateversion.mavenIncrement(choice)
                     def mvnVersion = sh (script: "mvn build-helper:parse-version | grep Building | cut -d ' ' -f4", returnStdout: true)
                     if (mvnVersion){
