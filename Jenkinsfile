@@ -19,7 +19,7 @@ pipeline {
                     def choice = "${params.increment}"
 
                     println "${choice}"
-                    updateversion.mavenIncrement()
+                    updateversion.mavenIncrement(choice)
                     def mvnVersion = sh (script: "mvn build-helper:parse-version | grep Building | cut -d ' ' -f4", returnStdout: true)
                     if (mvnVersion){
                         println "Maven package updated to version: ${mvnVersion}"
