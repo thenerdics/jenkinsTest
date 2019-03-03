@@ -16,10 +16,12 @@ pipeline {
                     
                     if (version){
                         println "Updated to version: ${version}"
-                        sh '''
+                        sh """
+                        git config --global user.email "you@example.com"
+                        git config --global user.name "Your Name"
                         git add .
                         git commit -am "Updated to version: ${version}"
-                        '''
+                        """
                     }
                 }
                 
