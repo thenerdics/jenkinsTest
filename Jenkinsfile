@@ -1,4 +1,8 @@
 node {
+    tools{
+        maven 'maven 3'
+        jdk 'java 8'
+    }
     stage('Install Maven'){
         echo "Hello World"
         sh '''
