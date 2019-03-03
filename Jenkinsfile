@@ -2,7 +2,7 @@
 pipeline {
     agent any
     parameters{
-        choice(description:"What increment?", name:'increment', choices: ['major','minor','patch','prepatch'])
+        choice(description:"What increment?", name:'increment', choices: ['major','minor','patch','hotfix'])
     }
     tools { 
         maven 'jenkins-mani' 
