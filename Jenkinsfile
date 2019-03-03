@@ -1,7 +1,7 @@
 
 
 node {
-
+    checkout scm
     def updateversion = load("variables/vars/updateVersion.groovy")
     def versionChoices = ['major','minor','patch']
     parameters{
@@ -16,7 +16,6 @@ node {
         stage ('Maven increment') {
             steps {
                 script {
-                    checkout scm
                     sh 'git stash && git pull'
                     
                     def choice = "${params.increment}"
