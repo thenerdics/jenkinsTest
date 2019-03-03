@@ -45,7 +45,7 @@ pipeline {
                     }catch(e){
                         println "Something went wrong:\n${e}"
                     }
-                    def npmVersion = sh ( script: "cat ./package.json", returnStdout: true )
+                    def npmVersion = sh ( script: "cat ./package.json | grep -i version", returnStdout: true )
                     if (npmVersion){
                         echo "Npm package updated to version:${npmVersion}"
                     }
