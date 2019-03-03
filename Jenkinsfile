@@ -1,9 +1,9 @@
 
-def updateversion = load("variables/vars/updateVersion.groovy")
-def versionChoices = ['major','minor','patch']
 
 pipeline {
     agent any
+    def updateversion = load("variables/vars/updateVersion.groovy")
+    def versionChoices = ['major','minor','patch']
     parameters{
         choice( name:'increment' ,description:"What increment?" , choices: versionChoices)
     }
