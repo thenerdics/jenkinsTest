@@ -7,11 +7,6 @@ node {
     parameters{
         choice( name:'increment' ,description:"What increment?" , choices: versionChoices)
     }
-    tools { 
-        maven 'jenkins-mani' 
-        nodejs 'nodejs-mani'
-        
-    }
     stages {
         stage ('Maven increment') {
             steps {
