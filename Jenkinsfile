@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script {
                     checkout scm
-                    sh 'git stash'
+                    sh 'git stash && git pull'
                     def updateversion = load("variables/vars/updateVersion.groovy")
                     def choice = "${params.increment}"
 
@@ -36,7 +36,7 @@ pipeline {
             steps {
                 script {
                     checkout scm
-                    sh 'git stash'
+                    sh 'git stash && git pull'
                     def updateversion = load("variables/vars/updateVersion.groovy")
                     def choice = "${params.increment}"
                     updateversion.npmIncrement(choice)
