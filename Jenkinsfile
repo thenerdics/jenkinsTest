@@ -1,7 +1,11 @@
+
+def updateversion = load("variables/vars/updateVersion.groovy")
+def versionChoices = ['major','minor','patch']
+
 pipeline {
     agent any
     parameters{
-        string(defaultValue:"increment",description:"What increment?", name:'increment')
+        choice(defaultValue:"increment",description:"What increment?", name:'increment', choices: versionChoices)
     }
     tools { 
         maven 'jenkins-mani' 
@@ -14,7 +18,7 @@ pipeline {
                 script {
                     checkout scm
                     sh 'git stash && git pull'
-                    def updateversion = load("variables/vars/updateVersion.groovy")
+                    
                     def choice = "${params.increment}"
 
                     println "${choice}"
@@ -38,7 +42,6 @@ pipeline {
                 script {
                     checkout scm
                     sh 'git stash && git pull'
-                    def updateversion = load("variables/vars/updateVersion.groovy")
                     def choice = "${params.increment}"
                     try {
                         updateversion.npmIncrement(choice)
