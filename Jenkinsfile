@@ -9,6 +9,7 @@ pipeline {
             steps {
                 checkout scm
                 sh '''
+                cat pom.xml
                     echo "PATH = ${PATH}"
                     echo "M2_HOME = ${M2_HOME}"
                     mvn -version
