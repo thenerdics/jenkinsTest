@@ -26,7 +26,6 @@ def npmIncrement(choice){
         }else if (choice == 'patch'){
             sh 'npm version patch'
         }
-    sh 'cat ./package.json'
 }
 
 // def mvnIncrement(major,minor,patch){
