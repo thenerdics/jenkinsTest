@@ -44,7 +44,7 @@ pipeline {
                     }catch(e){
                         println "Something went wrong:\n${e}"
                     }
-                    def npmVersion = sh ( script: "cat package.json | jq -r '.version' || echo 'something broke'", returnStdout: true )
+                    def npmVersion = sh ( script: "cat ./package.json", returnStdout: true )
                     if (npmVersion){
                         echo "Npm package updated to version:${npmVersion}"
                     }
