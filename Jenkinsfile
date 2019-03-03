@@ -45,6 +45,7 @@ pipeline {
                         echo "Npm package updated to version:${npmVersion}"
                     }
                 }
+                deleteDir()
             }
         }
     }
