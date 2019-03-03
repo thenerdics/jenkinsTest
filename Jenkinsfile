@@ -8,14 +8,14 @@ pipeline {
         
     }
     stages {
-        stage ('Initialize') {
+        def updateversion = load("variables/vars/updateVersion.groovy")
+        stage ('Maven increment') {
             steps {
                 checkout scm
                 
                 script {
                     def choice = "${params.increment}"
                     println "${choice}"
-                    def updateversion = load("variables/vars/updateVersion.groovy")
                     updateversion.mavenIncrement()
                     updateversion.npmIncrement(choice)
                     def version = sh (script: "mvn build-helper:parse-version | grep Building | cut -d ' ' -f4", returnStdout: true)
@@ -33,7 +33,7 @@ pipeline {
             }
         }
 
-        stage ('Build') {
+        stage ('Node increment') {
             steps {
                 echo 'This is a minimal pipeline.'
             }
