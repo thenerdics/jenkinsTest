@@ -8,13 +8,10 @@ pipeline {
         stage ('Initialize') {
             steps {
                 checkout scm
-                sh '''
-                    git checkout mavenTest
-                    mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.majorVersion}.\\${parsedVersion.nextMinorVersion}.\\${parsedVersion.nextIncrementalVersion} versions:commit
-                ''' 
+                
                 script {
                     def version = sh (script: "mvn build-helper:parse-version | grep Building | cut -d ' ' -f4", returnStdout: true)
-                    
+                    def updateVersion = load('vars/updateVersion.groovy')
                     if (version){
                         println "Updated to version: ${version}"
                         sh """
