@@ -39,7 +39,11 @@ pipeline {
                     sh 'git stash && git pull'
                     def updateversion = load("variables/vars/updateVersion.groovy")
                     def choice = "${params.increment}"
-                    updateversion.npmIncrement(choice)
+                    try {
+                        updateversion.npmIncrement(choice)
+                    }catch(e){
+                        println "Something went wrong:\n${e}"
+                    }
                     def npmVersion = sh ( script: "cat package.json | jq -r '.version' || echo 'something broke'", returnStdout: true )
                     if (npmVersion){
                         echo "Npm package updated to version:${npmVersion}"
