@@ -15,10 +15,10 @@ def mavenIncrement(choice){
             mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.majorVersion}.\\${parsedVersion.minorVersion}.\\${parsedVersion.nextIncrementalVersion} versions:commit
         '''
     } else if (choice == 'hotfix'){
-        def env.message = "${choice}"
+        def env.MESSAGE = "${choice}"
         sh'''
-        echo "$message"
-            mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.majorVersion}.\\${parsedVersion.minorVersion}.\\${parsedVersion.incrementalVersion}."$message" versions:commit
+        echo "$MESSAGE"
+            mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.majorVersion}.\\${parsedVersion.minorVersion}.\\${parsedVersion.incrementalVersion}."$MESSAGE" versions:commit
         '''
     }
 }
