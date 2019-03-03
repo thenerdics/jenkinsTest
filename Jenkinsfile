@@ -1,7 +1,7 @@
 
 
-pipeline {
-    agent any
+node {
+
     def updateversion = load("variables/vars/updateVersion.groovy")
     def versionChoices = ['major','minor','patch']
     parameters{
