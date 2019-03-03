@@ -17,6 +17,7 @@ def npmIncrement(choice){
         }else if (choice == 'patch'){
             sh 'npm version patch'
         }
+    sh 'cat ./package.json'
 }
 
 return this
