@@ -3,11 +3,11 @@
 def mavenIncrement(choice){
     echo "================ Incrementing maven pom file ================"
     if (choice == 'major'){
-        mvnIncrement("nextMajorVersion","0","0")
+        sh 'mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.nextMajorVerion}.0.0} versions:commit'
     }else if (choice == 'minor'){
-        sh 'mvnIncrement("majorVersion","nextMinorVersion","0")'
+        sh 'mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.majorVerion}.\\${parsedVersion.nextMinorVersion}.0} versions:commit'
     }else if (choice == 'patch'){
-        sh 'mvnIncrement("majorVersion","nextMinorVersion","nextIncrementVersion")'
+        sh 'mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.majorVerion}.\\${parsedVersion.minorVersion}.\\${parsedVersion.nextIncrementalVersion}} versions:commit'
     }
 }
 
