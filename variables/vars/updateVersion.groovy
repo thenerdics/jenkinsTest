@@ -4,7 +4,7 @@ def mavenIncrement(choice){
     echo "================ Incrementing maven pom file ================"
     if (choice == 'major'){
         sh '''
-            mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.majorVersion}.0.0 versions:commit
+            mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.nextMajorVersion}.0.0 versions:commit
         '''
     }else if (choice == 'minor'){
         sh '''
