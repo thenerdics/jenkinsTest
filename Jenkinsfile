@@ -18,7 +18,7 @@ pipeline {
                     println "${choice}"
                     updateversion.mavenIncrement()
                     def mvnVersion = sh (script: "mvn build-helper:parse-version | grep Building | cut -d ' ' -f4", returnStdout: true)
-                    if (version){
+                    if (mvnVersion){
                         println "Updated to version: ${mvnVersion}"
                         sh """
                         git config --global user.email "manvirbrar1988@gmail.com"
@@ -28,7 +28,6 @@ pipeline {
                         """
                     }
                 }
-                
             }
         }
 
