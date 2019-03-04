@@ -1,8 +1,4 @@
 node {
-    tools {
-        maven 'jenkins-mani' 
-        nodejs 'nodejs-mani'
-    }
     stage('initialise'){
         dir('maven'){
             echo "hello world"
