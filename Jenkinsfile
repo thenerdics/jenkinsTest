@@ -26,8 +26,6 @@ pipeline {
                     if (mvnVersion){
                         println "Maven package updated to version: ${mvnVersion}"
                         sh """
-                            git config --global user.email "manvirbrar1988@gmail.com"
-                            git config --global user.name "thenerdics"
                             git add .
                             git commit -am "Mvn updated to version: ${mvnVersion}"
                         """
