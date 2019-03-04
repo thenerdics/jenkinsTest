@@ -20,6 +20,7 @@ def mavenIncrement(choice, hotfix){
             mvn build-helper:parse-version versions:set -DnewVersion=\\\${parsedVersion.majorVersion}.\\\${parsedVersion.minorVersion}.\\\${parsedVersion.incrementalVersion}-"hotfix-${MESSAGE}" versions:commit
         """
     }
+    echo "================ Incrementing maven pom file complete ================"
 }
 
 def npmIncrement(choice){
@@ -33,6 +34,7 @@ def npmIncrement(choice){
         }else if (choice == "hotfix"){
             sh 'npm version prepatch'
         }
+    echo "================ Incrementing nodejs package.json complete ================"
 }
 
 // def mvnIncrement(major,minor,patch){
