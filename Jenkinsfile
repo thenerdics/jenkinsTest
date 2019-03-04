@@ -1,4 +1,8 @@
 node {
+    tools {
+        maven 'jenkins-mani' 
+        nodejs 'nodejs-mani'
+    }
     stage('initialise'){
         echo "hello world"
         sh '''
