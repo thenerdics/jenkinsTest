@@ -52,6 +52,8 @@ pipeline {
                     if (npmVersion){
                         echo "Npm package updated to version: ${npmVersion}"
                     }
+                    git commit -am "version update"
+                    git push
                 }
                 deleteDir()
             }
