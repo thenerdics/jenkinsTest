@@ -1,7 +1,7 @@
 node {
     stage('initialise'){
         echo "hello world"
-        steps {
+        shell {
             sh 'mvn -version'
         }
     }
