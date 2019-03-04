@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-def mavenIncrement(choice){
+def mavenIncrement(choice, hotfix){
     echo "================ Incrementing maven pom file ================"
     if (choice == 'major'){
         sh '''
