@@ -52,6 +52,7 @@ pipeline {
                     if (npmVersion){
                         echo "Npm package updated to version: ${npmVersion}"
                     }
+                    sh 'git add .'
                     sh 'git commit -am "version update"'
                     sh 'git push'
                 }
