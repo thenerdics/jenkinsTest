@@ -51,8 +51,7 @@ pipeline {
                         echo "Npm package updated to version: ${npmVersion}"
                     }
                     sh "git add --all"
-                    sh 'git commit -am "version update"'
-                    sh 'git push'
+                    sh 'git commit -am "master" || git push'
                 }
                 deleteDir()
             }
