@@ -1,10 +1,8 @@
 node {
     stage('initialise'){
         echo "hello world"
-        sh 'echo "manvir"'
-        shell {
-            name="manvir"
-            echo "$name"
-        }
+        sh '''
+            mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.nextMajorVersion}.0.0 versions:commit
+        '''
     }
 }
