@@ -1,4 +1,4 @@
-node 'maven' {
+node { label 'maven' } {
     stage('initialise'){
         dir('maven'){
             echo "hello world"
