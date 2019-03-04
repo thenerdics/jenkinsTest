@@ -14,8 +14,8 @@ pipeline {
         stage ('Maven increment') {
             steps {
                 script {
-                    sh 'git checkout mavenTest'
-                    sh 'git stash && git pull'
+                    // sh 'git checkout mavenTest'
+                    // sh 'git stash && git pull'
                     def updateversion = load("variables/vars/updateVersion.groovy")
                     def choice = "${params.increment}"
                     def hotfix = "${params.hotfix}"
@@ -37,7 +37,7 @@ pipeline {
             steps {
                 script {
                     def updateversion = load("variables/vars/updateVersion.groovy")
-                    sh 'git stash && git pull'
+                    // sh 'git stash && git pull'
                     def choice = "${params.increment}"
                     try {
                         updateversion.npmIncrement(choice)
