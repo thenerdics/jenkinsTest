@@ -32,6 +32,7 @@ pipeline {
         stage ('Node increment') {
             steps {
                 script {
+                    checkout scm
                     def updateversion = load("variables/vars/updateVersion.groovy")
                     // sh 'git stash && git pull'
                     def choice = "${params.increment}"
