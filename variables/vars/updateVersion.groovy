@@ -2,6 +2,7 @@
 
 def mavenIncrement(choice, hotfix){
     echo "================ Incrementing maven pom file ================"
+    currentVersion = sh (script: "mvn org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version -q -DforceStdout", returnStdout: true)
     if (choice == 'major'){
         sh '''
             mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.nextMajorVersion}.0.0 versions:commit
