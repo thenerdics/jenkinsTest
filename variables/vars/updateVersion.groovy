@@ -17,7 +17,7 @@ def mavenIncrement(choice, hotfix){
     } else if (choice == 'hotfix'){
         def MESSAGE = "${hotfix}"
         sh"""
-            mvn build-helper:parse-version versions:set -DnewVersion=\\\${parsedVersion.majorVersion}.\\\${parsedVersion.minorVersion}.\\\${parsedVersion.incrementalVersion}-"hotfix-${MESSAGE}" versions:commit
+            mvn build-helper:parse-version versions:set -DnewVersion=\\\${parsedVersion.majorVersion}.\\\${parsedVersion.minorVersion}.\\\${parsedVersion.incrementalVersion}-"${MESSAGE}" versions:commit
         """
     }
     echo "================ Incrementing maven pom file complete ================"
