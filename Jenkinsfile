@@ -22,13 +22,9 @@ pipeline {
 
                     echo "Increment choice is: ${choice}" 
                     updateversion.mavenIncrement(choice, hotfix)
-                    def mvnVersion = sh (script: "mvn build-helper:parse-version | grep Building | cut -d ' ' -f4 | tr -d ' '", returnStdout: true)
+                    def mvnVersion = sh (script: "mvn org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version -q -DforceStdout", returnStdout: true)
                     if (mvnVersion){
                         println "Maven package updated to version: ${mvnVersion}"
-                        sh """
-                            git add .
-                            git commit -am "Mvn updated to version: ${mvnVersion}"
-                        """
                     }
                 }
             }
