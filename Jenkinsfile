@@ -18,7 +18,7 @@ pipeline {
                     // sh 'git checkout mavenTest'
                     // sh 'git stash && git pull'
                     checkout scm
-                    def updateversion = load("variables/vars/updateVersion.groovy")
+                    def updateversion = load("vars/updateVersion.groovy")
                     def choice = "${params.increment}"
                     def hotfix = "${params.hotfix}"
 
@@ -35,7 +35,7 @@ pipeline {
             steps {
                 script {
                     checkout scm
-                    def updateversion = load("variables/vars/updateVersion.groovy")
+                    def updateversion = load("vars/updateVersion.groovy")
                     // sh 'git stash && git pull'
                     def choice = "${params.increment}"
                     try {
