@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage ('Maven increment') {
             steps {
-                updateVersion 'major'
+                updateVersion.npmIncrement 'major'
                 script {
                     // sh 'git checkout mavenTest'
                     // sh 'git stash && git pull'
