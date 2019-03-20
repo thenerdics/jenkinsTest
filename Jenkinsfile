@@ -23,7 +23,7 @@ pipeline {
                     def hotfix = "${params.hotfix}"
 
                     echo "Increment choice is: ${choice}" 
-                    updateversion.mavenIncrement(choice, hotfix)
+                    println "updateversion.mavenIncrement(choice, hotfix)"
                     def mvnVersion = sh (script: "mvn org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version -q -DforceStdout", returnStdout: true)
                     if (mvnVersion){
                         println "Maven package updated to version: ${mvnVersion}"
@@ -39,7 +39,7 @@ pipeline {
                     // sh 'git stash && git pull'
                     def choice = "${params.increment}"
                     try {
-                        updateversion.npmIncrement(choice)
+                        println "updateversion.npmIncrement(choice)"
                     }catch(e){
                         println "Something went wrong:\n${e}"
                     }
