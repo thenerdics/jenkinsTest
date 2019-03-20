@@ -13,6 +13,7 @@ pipeline {
     stages {
         stage ('Maven increment') {
             steps {
+                updateVersion 'clean compileJava'
                 script {
                     // sh 'git checkout mavenTest'
                     // sh 'git stash && git pull'
