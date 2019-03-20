@@ -39,7 +39,7 @@ pipeline {
                     // sh 'git stash && git pull'
                     def choice = "${params.increment}"
                     try {
-                        println "updateversion.npmIncrement(choice)"
+                        println "\\updateversion.npmIncrement(choice)"
                     }catch(e){
                         println "Something went wrong:\n${e}"
                     }
