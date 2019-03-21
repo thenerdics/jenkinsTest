@@ -1,6 +1,6 @@
 #!/groovy
 
-@Library('test') _
+@Library('test@mavenTest') _
 
 pipeline {
     agent any
@@ -17,7 +17,7 @@ pipeline {
         stage ('Maven increment') {
             steps {
                 script {
-                    // updateVersion.npmIncrement 'major'
+                    updateVersion.npmIncrement 'major'
                     // sh 'git checkout mavenTest'
                     // sh 'git stash && git pull'
                     checkout scm
