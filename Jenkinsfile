@@ -1,3 +1,6 @@
+#!/groovy
+
+@Library('test') _
 
 pipeline {
     agent any
