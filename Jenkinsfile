@@ -13,8 +13,8 @@ pipeline {
         nodejs 'nodejs-mani'
         
     }
-    triggers {
-        scm("")
+    triggers { 
+        pollSCM('H */4 * * 1-5') 
     }
     stages {
         stage ('Maven increment') {
