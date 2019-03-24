@@ -4,6 +4,9 @@
 
 pipeline {
     agent any
+    triggers { 
+        pollSCM('H */4 * * 1-5') 
+    }
     parameters{
         choice(description:"What increment?", name:'increment', choices: ['major','minor','patch','hotfix'])
         string(description:"What's the hotfix name?", name:'hotfix', defaultValue:'')
@@ -12,9 +15,6 @@ pipeline {
         maven 'jenkins-mani' 
         nodejs 'nodejs-mani'
         
-    }
-    triggers { 
-        pollSCM('H */4 * * 1-5') 
     }
     stages {
         stage ('Maven increment') {
