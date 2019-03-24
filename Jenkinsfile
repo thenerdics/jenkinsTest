@@ -32,7 +32,7 @@ pipeline {
         stage ('Job stage') {
             steps {
                 script {
-                    echo "Hello world"
+                    echo "Hello new world"
                 }
                 deleteDir()
             }
