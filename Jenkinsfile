@@ -15,7 +15,7 @@ pipeline {
         
     }
     stages {
-        stage ('Maven increment') {
+        stage ('Load scm triggers') {
             steps {
                 script {
                     def scmVars = checkout([
@@ -29,22 +29,10 @@ pipeline {
                 }
             }
         }
-        stage ('Node increment') {
+        stage ('Job stage') {
             steps {
                 script {
-                    
-                    def updateversion = load("vars/updateVersion.groovy")
-                    // sh 'git stash && git pull'
-                    def choice = "${params.increment}"
-                    try {
-                        println "\\updateversion.npmIncrement(choice)"
-                    }catch(e){
-                        println "Something went wrong:\n${e}"
-                    }
-                    String npmVersion = sh ( script: "cat ./package.json | grep -i version | cut -d ':' -f2 | tr -d '\"' | tr -d ' '", returnStdout: true )
-                    if (npmVersion){
-                        echo "Npm package updated to version: ${npmVersion}"
-                    }
+                    echo "Hello world"
                 }
                 deleteDir()
             }
