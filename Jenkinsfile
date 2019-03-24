@@ -1,7 +1,5 @@
 #!/groovy
 
-@Library('test@mavenTest') _
-
 pipeline {
     agent any
     triggers { 
