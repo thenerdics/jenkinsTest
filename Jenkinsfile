@@ -3,7 +3,7 @@
 pipeline {
     agent any
     triggers { 
-        pollSCM("*/1 (1-23) * * *") 
+        pollSCM("* * * * *") 
     }
     parameters{
         choice(description:"What increment?", name:'increment', choices: ['major','minor','patch','hotfix'])
