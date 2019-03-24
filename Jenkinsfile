@@ -40,7 +40,14 @@ pipeline {
         stage ('Node increment') {
             steps {
                 script {
-                    checkout scm
+                    def scmVars = checkout([
+                        $class : 'GitSCM',
+                        branches : [[name: '*/scmTriggers']],
+                        doGenerateSubmoduleConfigurations: false,
+                        extensions : [/*[$class: 'CleanBeforeCheckout']*/],
+                        submoduleCfg : [],
+                        userRemoteConfigs: [[credentialsId: 'local-bb', url: 'https://github.com/thenerdics/jenkinsTest.git']]
+                    ])
                     def updateversion = load("vars/updateVersion.groovy")
                     // sh 'git stash && git pull'
                     def choice = "${params.increment}"
