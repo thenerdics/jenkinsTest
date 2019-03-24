@@ -46,7 +46,7 @@ pipeline {
                         doGenerateSubmoduleConfigurations: false,
                         extensions : [/*[$class: 'CleanBeforeCheckout']*/],
                         submoduleCfg : [],
-                        userRemoteConfigs: [[credentialsId: 'local-bb', url: 'https://github.com/thenerdics/jenkinsTest.git']]
+                        userRemoteConfigs: [[credentialsId: '	thenerdics', url: 'https://github.com/thenerdics/jenkinsTest.git']]
                     ])
                     def updateversion = load("vars/updateVersion.groovy")
                     // sh 'git stash && git pull'
