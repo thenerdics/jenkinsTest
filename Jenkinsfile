@@ -18,26 +18,6 @@ pipeline {
         stage ('Maven increment') {
             steps {
                 script {
-                    updateVersion.npmIncrement 'major'
-                    // sh 'git checkout mavenTest'
-                    // sh 'git stash && git pull'
-                    checkout scm
-                    def updateversion = load("vars/updateVersion.groovy")
-                    def choice = "${params.increment}"
-                    def hotfix = "${params.hotfix}"
-
-                    echo "Increment choice is: ${choice}" 
-                    println "updateversion.mavenIncrement(choice, hotfix)"
-                    def mvnVersion = sh (script: "mvn org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version -q -DforceStdout", returnStdout: true)
-                    if (mvnVersion){
-                        println "Maven package updated to version: ${mvnVersion}"
-                    }
-                }
-            }
-        }
-        stage ('Node increment') {
-            steps {
-                script {
                     def scmVars = checkout([
                         $class : 'GitSCM',
                         branches : [[name: '*/scmTriggers']],
@@ -46,6 +26,13 @@ pipeline {
                         submoduleCfg : [],
                         userRemoteConfigs: [[credentialsId: 'thenerdics', url: 'https://github.com/thenerdics/jenkinsTest.git']]
                     ])
+                }
+            }
+        }
+        stage ('Node increment') {
+            steps {
+                script {
+                    
                     def updateversion = load("vars/updateVersion.groovy")
                     // sh 'git stash && git pull'
                     def choice = "${params.increment}"
