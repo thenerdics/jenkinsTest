@@ -2,9 +2,9 @@
 
 pipeline {
     agent any
-    triggers { 
-        pollSCM("") 
-    }
+    // triggers { 
+    //     pollSCM("") 
+    // }
     parameters{
         choice(description:"What increment?", name:'increment', choices: ['major','minor','patch','hotfix'])
         string(description:"What's the hotfix name?", name:'hotfix', defaultValue:'')
