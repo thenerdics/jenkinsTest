@@ -13,6 +13,9 @@ pipeline {
         nodejs 'nodejs-mani'
         
     }
+    triggers {
+        scm("")
+    }
     stages {
         stage ('Maven increment') {
             steps {
