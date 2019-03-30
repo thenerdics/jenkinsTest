@@ -1,8 +1,10 @@
 #!/usr/bin/env groovy
 
 node {
-    stage('initialise'){
-        sh 'ls'
-        println "Hello World"
-    }
+    stage('Build') {
+        sh '''
+            BUILD=$(curl http://localhost:8080/api/json?tree=result )
+            echo $BUILD
+        '''
+    } 
 }
