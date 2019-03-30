@@ -10,7 +10,7 @@ pipeline {
     }
     stages {
         stage('Build') {
-            when { branch 'develop' 'groovy' }
+            when { branches 'develop, groovy' }
             steps {
                 sh '''
                     ls
