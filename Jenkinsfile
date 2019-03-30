@@ -13,6 +13,7 @@ pipeline {
                     printenv
                     pwd
                 '''
+                println "$WORKSPACE"
             }
         }
     }
