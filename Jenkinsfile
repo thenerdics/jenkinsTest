@@ -9,7 +9,7 @@ pipeline {
         pollSCM('* 9-17 * * *')
     }
     parameters { 
-        string(name: 'DEPLOY_ENV', defaultValue: 'staging', description: '') 
+        string(name: 'TEST_VAR', defaultValue: 'staging', description: '') 
     }
     stages {
         stage('Build') {
@@ -19,7 +19,7 @@ pipeline {
                     ls
                     printenv
                     pwd
-                    curl $BUILD_URL
+                    echo "Test var is: $TEST_VAR"
                     echo $GIT_PREVIOUS_SUCCESSFUL_COMMIT
                 '''
                 println "The build url is: $BUILD_URL"
