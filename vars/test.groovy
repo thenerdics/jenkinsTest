@@ -1,14 +1,7 @@
 #!/usr/bin/env groovy
+library 'my-shared-library'
 
-class test implements Serializable {
-    private String name
-    def setName(value) {
-        name = value
-    }
-    def getName() {
-        name
-    }
-    def caution(message) {
-        println "Hello, ${name}! CAUTION: ${message}" // line 12
-    }
+
+def test (){
+    println "hello world"
 }

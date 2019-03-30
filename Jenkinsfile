@@ -12,8 +12,7 @@ pipeline {
         stage('Build') {
             when { branch 'groovy' }
             steps {
-                acme.name = 'Alice'
-                acme.caution 'The queen is angry!'
+                test.test
                 sh '''
                     ls
                     printenv
