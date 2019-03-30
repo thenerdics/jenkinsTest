@@ -2,13 +2,15 @@
 
 pipeline {
     agent any
-    stages{
+    stages {
         stage('Build') {
-            sh '''
-                ls
-                printenv
-                pwd
-            '''
+            steps {
+                sh '''
+                    ls
+                    printenv
+                    pwd
+                '''
+            }
         }
     }
 }
