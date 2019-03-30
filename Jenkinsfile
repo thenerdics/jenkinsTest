@@ -1,8 +1,12 @@
 #!/usr/bin/env groovy
 
-node {
-    stage('initialise'){
-        sh 'printenv'
-        println "Hello World"
-    }
+pipeline {
+    agent any
+    stage('Build') {
+        sh '''
+            ls
+            printenv
+            pwd
+        '''
+    } 
 }
