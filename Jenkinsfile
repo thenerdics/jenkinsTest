@@ -1,14 +1,12 @@
 #!/usr/bin/env groovy
 
-String scmPoll = BRANCH_NAME == 'develop' ? '* * * * *' : ''
-
 pipeline {
     agent any
     tools {
         maven 'jenkins-mani' 
     }
     triggers {
-        pollSCM(scmPoll)
+        pollSCM('* * * * *')
     }
     stages {
         stage('Build') {
