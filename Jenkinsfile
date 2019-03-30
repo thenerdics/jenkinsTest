@@ -1,14 +1,14 @@
 #!/usr/bin/env groovy
 
+String scmPoll = BRANCH_NAME == 'develop' ? '* * * * *' : ''
+
 pipeline {
     agent any
     tools {
         maven 'jenkins-mani' 
     }
     triggers {
-        when ( env.BRANCH_NAME == 'develop') {
-            pollSCM('* * * * *')
-        }
+        pollSCM(scmPoll)
     }
     stages {
         stage('Build') {
@@ -22,7 +22,6 @@ pipeline {
                     '''
                     println "The build url is: $BUILD_URL"
                 }
-            when { "$BUILD_NUMBER" '14' }
                 steps {
                     println "Wow the magic number $BUILD_NUMBER"
                 }
