@@ -6,7 +6,7 @@ pipeline {
         maven 'jenkins-mani' 
     }
     triggers {
-        pollSCM('* 9-17 * * *')
+        pollSCM('* * * * *')
     }
     parameters { 
         string(name: 'TEST_VAR', defaultValue: 'staging', description: '') 
@@ -25,6 +25,7 @@ pipeline {
                 println "The build url is: $BUILD_URL"
                 println "Wow the magic number $BUILD_NUMBER"
                 println "The git branch is:$GIT_BRANCH"
+                (params.TEST_VAR) ? println "Variable found" : println "No variable!"
             }
         }
         stage('Test') {
