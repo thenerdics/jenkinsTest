@@ -19,9 +19,9 @@ pipeline {
                     ls
                     printenv
                     pwd
-                    echo "Test var is: $TEST_VAR"
                     echo $GIT_PREVIOUS_SUCCESSFUL_COMMIT
                 '''
+                println "Test var is: ${params.TEST_VAR}"
                 println "The build url is: $BUILD_URL"
                 println "Wow the magic number $BUILD_NUMBER"
                 println "The git branch is:$GIT_BRANCH"
