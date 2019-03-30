@@ -6,7 +6,7 @@ pipeline {
         maven 'jenkins-mani' 
     }
     triggers {
-        pollSCM('* * * * *')
+        pollSCM('* 9-17 * * *')
     }
     stages {
         stage('Build') {
