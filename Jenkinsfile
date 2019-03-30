@@ -13,18 +13,16 @@ pipeline {
     stages {
         stage('Build') {
             when { branch 'groovy' }
-                steps {
-                    sh '''
-                        ls
-                        printenv
-                        pwd
-                        curl $BUILD_URL
-                    '''
-                    println "The build url is: $BUILD_URL"
-                }
-                steps {
-                    println "Wow the magic number $BUILD_NUMBER"
-                }
+            steps {
+                sh '''
+                    ls
+                    printenv
+                    pwd
+                    curl $BUILD_URL
+                '''
+                println "The build url is: $BUILD_URL"
+                println "Wow the magic number $BUILD_NUMBER"
+            }
         }
     }
 }
