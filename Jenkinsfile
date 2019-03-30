@@ -17,6 +17,7 @@ pipeline {
                     printenv
                     pwd
                     curl $BUILD_URL
+                    echo $GIT_PREVIOUS_SUCCESSFUL_COMMIT
                 '''
                 println "The build url is: $BUILD_URL"
                 println "Wow the magic number $BUILD_NUMBER"
