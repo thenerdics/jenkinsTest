@@ -12,7 +12,7 @@ pipeline {
         stage('Build') {
             when { branch 'groovy' }
             steps {
-                echo test.STARTED
+                println test.STARTED
                 sh '''
                     ls
                     printenv
