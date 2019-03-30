@@ -12,6 +12,7 @@ pipeline {
                     ls
                     printenv
                     pwd
+                    curl $BUILD_URL
                 '''
                 println "The build url is: $BUILD_URL"
             }
