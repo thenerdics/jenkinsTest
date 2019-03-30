@@ -6,7 +6,9 @@ pipeline {
         maven 'jenkins-mani' 
     }
     triggers {
-        pollSCM('* * * * *')
+        when ( env.BRANCH_NAME == 'develop') {
+            pollSCM('* * * * *')
+        }
     }
     stages {
         stage('Build') {
