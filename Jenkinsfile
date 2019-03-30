@@ -20,6 +20,10 @@ pipeline {
                     '''
                     println "The build url is: $BUILD_URL"
                 }
+            when { "$BUILD_NUMBER" '14' }
+                steps {
+                    println "Wow the magic number $BUILD_NUMBER"
+                }
         }
     }
 }
