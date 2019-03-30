@@ -12,11 +12,6 @@ pipeline {
         stage('Build') {
             when { branch 'groovy' }
             steps {
-                try {
-                    test.test
-                } catch (e) {
-                    println e
-                }
                 sh '''
                     ls
                     printenv
