@@ -13,7 +13,7 @@ pipeline {
                     printenv
                     pwd
                 '''
-                println "$WORKSPACE"
+                println "The build url is: $BUILD_URL"
             }
         }
     }
