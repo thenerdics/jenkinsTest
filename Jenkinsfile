@@ -19,7 +19,8 @@ pipeline {
                         github('thenerdic/jenkinsTest', 'ssh')
                         credentials('blah')
                     }
-                }   
+                }
+            }   
         }
     }
     stages {
