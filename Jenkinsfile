@@ -11,6 +11,17 @@ pipeline {
     parameters { 
         string(name: 'TEST_VAR', defaultValue: 'staging', description: '') 
     }
+    definition {
+        cpsScm {
+            scm {
+                git {
+                    remote {
+                        github('thenerdic/jenkinsTest', 'ssh')
+                        credentials('blah')
+                    }
+                }   
+        }
+    }
     stages {
         stage('Build') {
             when { branch 'groovy' }
