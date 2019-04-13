@@ -15,7 +15,6 @@ pipeline {
         stage('Build') {
             when { branch 'groovy' }
             steps {
-                GIT_BRANCH = 'dev'
                 sh '''
                 git pull
                     ls
