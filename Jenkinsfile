@@ -49,5 +49,11 @@ pipeline {
                 println "The git branch is:$GIT_BRANCH"
             }
         }
+        stage('call') {
+            def body = {}
+            def body.projectName = 'manvir'
+            def body.serverDomain = 'serverDomain'
+            test.call()
+        }
     }
 }
