@@ -6,7 +6,7 @@ pipeline {
         maven 'jenkins-mani' 
     }
     triggers {
-        pollSCM('* * * * *')
+        pollSCM('* * * * * \n 12 00 * * *')
     }
     parameters { 
         string(name: 'TEST_VAR', defaultValue: 'staging', description: '') 

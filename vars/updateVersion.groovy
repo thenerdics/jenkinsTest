@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-def mavenIncrement(choice, hotfix){
+def mavenIncrement(choice, hotfixMessage){
     echo "================ Incrementing maven pom file ================"
     currentVersion = sh (script: "mvn org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version -q -DforceStdout", returnStdout: true)
     echo "The maven project is currently on version ${currentVersion}\nUpdating..."
@@ -17,7 +17,7 @@ def mavenIncrement(choice, hotfix){
             mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.majorVersion}.\\${parsedVersion.minorVersion}.\\${parsedVersion.nextIncrementalVersion} versions:commit
         '''
     } else if (choice == 'hotfix'){
-        def MESSAGE = "${hotfix}"
+        def MESSAGE = "${hotfixMessage}"
         sh"""
             mvn build-helper:parse-version versions:set -DnewVersion=\\\${parsedVersion.majorVersion}.\\\${parsedVersion.minorVersion}.\\\${parsedVersion.incrementalVersion}-"${MESSAGE}" versions:commit
         """
