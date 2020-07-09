@@ -51,8 +51,8 @@ pipeline {
         }
         stage('call') {
             def body = {}
-            def body['projectName'] = 'manvir'
-            def body['serverDomain'] = 'serverDomain'
+            body['projectName'] = 'manvir'
+            body['serverDomain'] = 'serverDomain'
             test.call()
         }
     }
