@@ -6,7 +6,7 @@ pipeline {
         maven 'jenkins-mani' 
     }
     triggers {
-        cron('*/53 * * * * \n */58 * * * *')
+        cron('*/53 * * * * \n */58 * * * * \n 2 * * * *')
     }
     parameters { 
         string(name: 'TEST_VAR', defaultValue: 'staging', description: '') 
